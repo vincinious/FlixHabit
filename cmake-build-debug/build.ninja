@@ -49,22 +49,8 @@ cmake_ninja_workdir = C$:/Users/imspi/OneDrive/Documents/GitHub/FlixHabit/cmake-
 
 build cmake_object_order_depends_target_FlixHabit: phony || CMakeFiles/FlixHabit.dir
 
-build CMakeFiles/FlixHabit.dir/test/test.cpp.obj: CXX_COMPILER__FlixHabit_unscanned_Debug C$:/Users/imspi/OneDrive/Documents/GitHub/FlixHabit/test/test.cpp || cmake_object_order_depends_target_FlixHabit
-  DEP_FILE = CMakeFiles\FlixHabit.dir\test\test.cpp.obj.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/imspi/OneDrive/Documents/GitHub/FlixHabit/src
-  OBJECT_DIR = CMakeFiles\FlixHabit.dir
-  OBJECT_FILE_DIR = CMakeFiles\FlixHabit.dir\test
-
-build CMakeFiles/FlixHabit.dir/src/Graph.cpp.obj: CXX_COMPILER__FlixHabit_unscanned_Debug C$:/Users/imspi/OneDrive/Documents/GitHub/FlixHabit/src/Graph.cpp || cmake_object_order_depends_target_FlixHabit
-  DEP_FILE = CMakeFiles\FlixHabit.dir\src\Graph.cpp.obj.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/imspi/OneDrive/Documents/GitHub/FlixHabit/src
-  OBJECT_DIR = CMakeFiles\FlixHabit.dir
-  OBJECT_FILE_DIR = CMakeFiles\FlixHabit.dir\src
-
-build CMakeFiles/FlixHabit.dir/src/MinHeap.cpp.obj: CXX_COMPILER__FlixHabit_unscanned_Debug C$:/Users/imspi/OneDrive/Documents/GitHub/FlixHabit/src/MinHeap.cpp || cmake_object_order_depends_target_FlixHabit
-  DEP_FILE = CMakeFiles\FlixHabit.dir\src\MinHeap.cpp.obj.d
+build CMakeFiles/FlixHabit.dir/src/main.cpp.obj: CXX_COMPILER__FlixHabit_unscanned_Debug C$:/Users/imspi/OneDrive/Documents/GitHub/FlixHabit/src/main.cpp || cmake_object_order_depends_target_FlixHabit
+  DEP_FILE = CMakeFiles\FlixHabit.dir\src\main.cpp.obj.d
   FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/imspi/OneDrive/Documents/GitHub/FlixHabit/src
   OBJECT_DIR = CMakeFiles\FlixHabit.dir
@@ -78,7 +64,7 @@ build CMakeFiles/FlixHabit.dir/src/MinHeap.cpp.obj: CXX_COMPILER__FlixHabit_unsc
 #############################################
 # Link the executable FlixHabit.exe
 
-build FlixHabit.exe: CXX_EXECUTABLE_LINKER__FlixHabit_Debug CMakeFiles/FlixHabit.dir/test/test.cpp.obj CMakeFiles/FlixHabit.dir/src/Graph.cpp.obj CMakeFiles/FlixHabit.dir/src/MinHeap.cpp.obj
+build FlixHabit.exe: CXX_EXECUTABLE_LINKER__FlixHabit_Debug CMakeFiles/FlixHabit.dir/src/main.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\FlixHabit.dir

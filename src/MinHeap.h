@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <stdexcept>
+#pragma once
 
 using namespace std;
 

@@ -9,5 +9,7 @@ add_executable(FlixHabit
         src/User.h
         test/test.cpp
         src/Graph.cpp
-        src/Minheap.h
-        src/MinHeap.cpp)
+        src/Graph.h
+        src/MinHeap.h
+        src/MinHeap.cpp
+        src/main.cpp)
