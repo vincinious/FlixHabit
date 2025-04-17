@@ -1,6 +1,7 @@
 /* Completed by Vinicius Intravartola (WIP) */
 #include "Graph.h"
 
+
 using namespace std;
 
 /* Graph implementation: Shortest-paths to find most similar users and their interests */
@@ -12,7 +13,7 @@ void Graph::addVertex(const string& vertex)
 {
     /* Create an empty list for this vertex */
     if (adjList.find(vertex) == adjList.end())  
-        { adjList[vertex] = vector <string>(); }
+        { adjList[vertex] = vector<string>(); }
 }
 
 /* Add an edge(a connection between two identifiers of a user in the data).If undirected is true, adds an edge directed in the opposite direction too */

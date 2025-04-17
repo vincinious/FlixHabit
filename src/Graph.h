@@ -2,6 +2,7 @@
 /* Completed by Vinicius Intravartola */
 #include <string>
 #include <list>
+#include <vector>
 #include <unordered_map>
 #include <iostream>
 
@@ -12,7 +13,7 @@ class Graph
    private:
 
         /* adjacency list to map a vertex(string) to a list of vertices(neighbors). */
-        unordered_map <string, vector <string> > adjList;
+        unordered_map <string, vector<string> > adjList;
 
     public:
 
