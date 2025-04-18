@@ -1,22 +1,25 @@
 /* Completed by Vinicius Intravartola (WIP) */
 #include "Graph.h"
 
-
 using namespace std;
 
 /* Graph implementation: Shortest-paths to find most similar users and their interests */
 
-Graph::Graph() {}
+// define constructor
+Graph::Graph() { }
 
-/* Add a vertex to the graph if it does not already exist */
+// define destructor (must match the header)
+Graph::~Graph() { }
+
+
+/* Adds a vertex to the graph if it does not already exist */
 void Graph::addVertex(const string& vertex) 
 {
     /* Create an empty list for this vertex */
-    if (adjList.find(vertex) == adjList.end())  
-        { adjList[vertex] = vector<string>(); }
+    if (adjList.find(vertex) == adjList.end())  { adjList[vertex] = {}; }
 }
 
-/* Add an edge(a connection between two identifiers of a user in the data).If undirected is true, adds an edge directed in the opposite direction too */
+/* Adds an edge(a connection between two identifiers of a user in the data).If undirected is true, adds an edge directed in the opposite direction too */
 void Graph::addEdge(const string& from, const string& to, bool undirected)
 {
     /* Add 'from' and 'to' vertices to the list*/
@@ -35,20 +38,19 @@ void Graph::printGraph() const
 
     for (auto const& pair : adjList)
     {
-        const string& vertex = pair.first;
-        const vector<string> &neighbors = pair.second;
-
-        cout << vertex << " -> ";
+        cout << pair.first << " -> ";
+        auto const &neighbors = pair.second;
 
         for (unsigned int i = 0; i < neighbors.size(); ++i) 
         {
             cout << neighbors[i];
+
             if (i + 1 < neighbors.size())   { cout << ", "; }
         }
 
         cout << "\n";
     }
 
-    /* Destructor. */
-    Graph::~Graph();
+
 }
+

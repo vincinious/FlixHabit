@@ -1,11 +1,11 @@
 
 /* Completed by Vinicius Intravartola */
+#pragma once
 #include <string>
 #include <list>
-#include <vector>
 #include <unordered_map>
 #include <iostream>
-#pragma once
+#include <vector>
 
 using namespace std;
 
@@ -14,11 +14,12 @@ class Graph
    private:
 
         /* adjacency list to map a vertex(string) to a list of vertices(neighbors). */
-        unordered_map <string, vector<string> > adjList;
+        unordered_map <string, vector <string> > adjList;
 
     public:
 
         Graph();
+        ~Graph();
 
         /* Add a vertex to the graph if it does not already exist */
         void addVertex(const string& vertex);
@@ -28,7 +29,7 @@ class Graph
 
         void printGraph() const;
 
-        //~Graph();
+
 
 };
 

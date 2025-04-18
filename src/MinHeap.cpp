@@ -1,11 +1,14 @@
 /* Completed by Vinicius Intravartola */
 
 #include "MinHeap.h"
-
+#include "User.h"
 #include <algorithm>  
 
 
 using namespace std;
+
+template<typename T>
+MinHeap<T>::MinHeap() { }
 
 /* Return the parent index */
 template <typename T>
@@ -24,7 +27,8 @@ template <typename T>
 void MinHeap<T>::heapifyUp(int i) 
 {
     /* As long as the parent is larger, swap the parent and child */
-    while (i != 0 && heap[getParent(i)] > heap[i])
+    while (i > 0 
+           && heap[i] < heap[getParent(i)])
     {
         T temp = heap[i];
         heap[i] = heap[getParent(i)];
@@ -82,7 +86,7 @@ template <typename T>
 void MinHeap<T>::removeMin()
 {
     /* If no root, throw err messsage */
-    if (heap.empty() = true)   { throw runtime_error("Heap is empty!"); }
+    if (heap.empty() == true)   { throw runtime_error("Heap is empty!"); }
 
     heap[0] = heap[heap.size() - 1];
     heap.pop_back();
@@ -91,3 +95,4 @@ void MinHeap<T>::removeMin()
 
 }
 
+template class MinHeap<UserSimilarity>;

@@ -1,9 +1,9 @@
 
 /* Completed by Vinicius Intravartola */
+#pragma once
 
 #include <vector>
 #include <stdexcept>
-#pragma once
 
 using namespace std;
 
@@ -11,6 +11,7 @@ using namespace std;
 
 /* templated MinHeap(class) for any data element type */
 template <typename T>
+
 class MinHeap 
 {
     private:
@@ -25,9 +26,12 @@ class MinHeap
 
     public:
 
+        MinHeap();
+
         void insert(const T& element);
         T getMin() const;
         void removeMin();
+
 
 };
 

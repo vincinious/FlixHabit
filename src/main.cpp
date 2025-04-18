@@ -1,3 +1,7 @@
+#include "User.h"
+#include "Graph.h"
+#include "MinHeap.h"
+
 #include <iostream>
 #include <vector>
 #include <map>
@@ -6,22 +10,19 @@
 #include <fstream>
 #include <sstream>
 #include <limits>
-#include "Graph.h"
-#include "MinHeap.h"
-#include "User.h"
 
 using namespace std;
 
 // Structure to hold user pair similarity
-struct UserSimilarity {
-    int user1ID;
-    int user2ID;
-    double similarity;
-
-    bool operator<(const UserSimilarity& other) const {
-        return similarity > other.similarity; // For min heap to give us highest similarity
-    }
-};
+//struct UserSimilarity {
+//    int user1ID;
+//    int user2ID;
+//    double similarity;
+//
+//    bool operator<(const UserSimilarity& other) const {
+//        return similarity > other.similarity; // For min heap to give us highest similarity
+//    }
+//};
 
 // Function to calculate similarity score between users
 double calculateSimilarity(const User& user1, const User& user2) {
@@ -186,7 +187,8 @@ vector<UserSimilarity> findMostSimilarUsers(const vector<User>& users, int k) {
         try {
             result.push_back(heap.getMin());
             heap.removeMin();
-        } catch (const runtime_error&) {
+        }
+        catch (const runtime_error&) {
             break;
         }
     }
@@ -214,7 +216,7 @@ vector<User> findMostActiveUsers(const vector<User>& users, int k) {
 
     sort(sortedUsers.begin(), sortedUsers.end(), [](const User& a, const User& b) {
         return a.watchTime > b.watchTime;
-    });
+        });
 
     vector<User> result;
     for (int i = 0; i < k && i < static_cast<int>(sortedUsers.size()); i++) {
@@ -229,9 +231,9 @@ vector<User> generateSampleData() {
     vector<User> users;
 
     // Sample user data
-    string genres[] = {"Comedy", "Drama", "Action", "Horror", "Romance", "Documentary"};
-    string countries[] = {"USA", "Canada", "UK", "France", "Germany", "Japan"};
-    string subscriptions[] = {"Basic", "Standard", "Premium"};
+    string genres[] = { "Comedy", "Drama", "Action", "Horror", "Romance", "Documentary" };
+    string countries[] = { "USA", "Canada", "UK", "France", "Germany", "Japan" };
+    string subscriptions[] = { "Basic", "Standard", "Premium" };
 
     for (int i = 1; i <= 20; i++) {
         User user;
@@ -281,144 +283,146 @@ int main() {
         cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear input buffer
 
         switch (choice) {
-            case 1: {
-                cout << "Enter CSV filename: ";
-                getline(cin, filename);
-                users = readUsersFromCSV(filename);
-                cout << "Loaded " << users.size() << " users from " << filename << endl;
+        case 1: {
+            cout << "Enter CSV filename: ";
+            getline(cin, filename);
+            users = readUsersFromCSV(filename);
+            cout << "Loaded " << users.size() << " users from " << filename << endl;
+            break;
+        }
+        case 2: {
+            users = generateSampleData();
+            cout << "Generated sample data with " << users.size() << " users." << endl;
+            break;
+        }
+        case 3: {
+            if (users.empty()) {
+                cout << "No user data loaded. Please load data first." << endl;
                 break;
             }
-            case 2: {
-                users = generateSampleData();
-                cout << "Generated sample data with " << users.size() << " users." << endl;
+
+            int minAge, maxAge;
+            cout << "Enter minimum age: ";
+            cin >> minAge;
+            cout << "Enter maximum age: ";
+            cin >> maxAge;
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear input buffer
+
+            string genre = findMostCommonGenreForAgeGroup(users, minAge, maxAge);
+            if (genre.empty()) {
+                cout << "No users found in the specified age range." << endl;
+            }
+            else {
+                cout << "Most common genre for age group " << minAge << "-" << maxAge << ": " << genre << endl;
+            }
+            break;
+        }
+        case 4: {
+            if (users.empty()) {
+                cout << "No user data loaded. Please load data first." << endl;
                 break;
             }
-            case 3: {
-                if (users.empty()) {
-                    cout << "No user data loaded. Please load data first." << endl;
-                    break;
-                }
 
-                int minAge, maxAge;
-                cout << "Enter minimum age: ";
-                cin >> minAge;
-                cout << "Enter maximum age: ";
-                cin >> maxAge;
-                cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear input buffer
-
-                string genre = findMostCommonGenreForAgeGroup(users, minAge, maxAge);
-                if (genre.empty()) {
-                    cout << "No users found in the specified age range." << endl;
-                } else {
-                    cout << "Most common genre for age group " << minAge << "-" << maxAge << ": " << genre << endl;
-                }
+            map<string, double> avgWatchTime = findAverageWatchTimeByCountry(users);
+            cout << "Average watch time by country:\n";
+            for (const auto& pair : avgWatchTime) {
+                cout << pair.first << ": " << pair.second << " hours\n";
+            }
+            break;
+        }
+        case 5: {
+            if (users.empty()) {
+                cout << "No user data loaded. Please load data first." << endl;
                 break;
             }
-            case 4: {
-                if (users.empty()) {
-                    cout << "No user data loaded. Please load data first." << endl;
-                    break;
-                }
 
-                map<string, double> avgWatchTime = findAverageWatchTimeByCountry(users);
-                cout << "Average watch time by country:\n";
-                for (const auto& pair : avgWatchTime) {
-                    cout << pair.first << ": " << pair.second << " hours\n";
-                }
+            Graph userGenreGraph = buildUserGenreGraph(users);
+            cout << "User-Genre Relationship Graph:\n";
+            userGenreGraph.printGraph();
+            break;
+        }
+        case 6: {
+            if (users.empty()) {
+                cout << "No user data loaded. Please load data first." << endl;
                 break;
             }
-            case 5: {
-                if (users.empty()) {
-                    cout << "No user data loaded. Please load data first." << endl;
-                    break;
-                }
 
-                Graph userGenreGraph = buildUserGenreGraph(users);
-                cout << "User-Genre Relationship Graph:\n";
-                userGenreGraph.printGraph();
+            int k;
+            cout << "Enter the number of similar user pairs to find: ";
+            cin >> k;
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear input buffer
+
+            vector<UserSimilarity> similarUsers = findMostSimilarUsers(users, k);
+            cout << "Most similar users:\n";
+            for (const auto& pair : similarUsers) {
+                cout << "User " << pair.user1ID << " and User " << pair.user2ID
+                    << " (Similarity score: " << pair.similarity << ")\n";
+            }
+            break;
+        }
+        case 7: {
+            if (users.empty()) {
+                cout << "No user data loaded. Please load data first." << endl;
                 break;
             }
-            case 6: {
-                if (users.empty()) {
-                    cout << "No user data loaded. Please load data first." << endl;
-                    break;
-                }
 
-                int k;
-                cout << "Enter the number of similar user pairs to find: ";
-                cin >> k;
-                cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear input buffer
+            string subType;
+            cout << "Enter subscription type (Basic, Standard, Premium): ";
+            getline(cin, subType);
 
-                vector<UserSimilarity> similarUsers = findMostSimilarUsers(users, k);
-                cout << "Most similar users:\n";
-                for (const auto& pair : similarUsers) {
-                    cout << "User " << pair.user1ID << " and User " << pair.user2ID
-                         << " (Similarity score: " << pair.similarity << ")\n";
-                }
-                break;
+            vector<User> filteredUsers = findUsersBySubscription(users, subType);
+            if (filteredUsers.empty()) {
+                cout << "No users found with " << subType << " subscription." << endl;
             }
-            case 7: {
-                if (users.empty()) {
-                    cout << "No user data loaded. Please load data first." << endl;
-                    break;
-                }
-
-                string subType;
-                cout << "Enter subscription type (Basic, Standard, Premium): ";
-                getline(cin, subType);
-
-                vector<User> filteredUsers = findUsersBySubscription(users, subType);
-                if (filteredUsers.empty()) {
-                    cout << "No users found with " << subType << " subscription." << endl;
-                } else {
-                    cout << "Users with " << subType << " subscription:\n";
-                    for (const auto& user : filteredUsers) {
-                        cout << "User ID: " << user.userID << ", Name: " << user.name
-                             << ", Country: " << user.country << ", Genre: " << user.genre << endl;
-                    }
-                }
-                break;
-            }
-            case 8: {
-                if (users.empty()) {
-                    cout << "No user data loaded. Please load data first." << endl;
-                    break;
-                }
-
-                int k;
-                cout << "Enter the number of most active users to find: ";
-                cin >> k;
-                cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear input buffer
-
-                vector<User> activeUsers = findMostActiveUsers(users, k);
-                cout << "Most active users:\n";
-                for (const auto& user : activeUsers) {
+            else {
+                cout << "Users with " << subType << " subscription:\n";
+                for (const auto& user : filteredUsers) {
                     cout << "User ID: " << user.userID << ", Name: " << user.name
-                         << ", Watch Time: " << user.watchTime << " hours, Genre: " << user.genre << endl;
+                        << ", Country: " << user.country << ", Genre: " << user.genre << endl;
                 }
+            }
+            break;
+        }
+        case 8: {
+            if (users.empty()) {
+                cout << "No user data loaded. Please load data first." << endl;
                 break;
             }
-            case 9: {
-                if (users.empty()) {
-                    cout << "No user data loaded. Please load data first." << endl;
-                    break;
-                }
 
-                cout << "All loaded users:\n";
-                cout << "ID\tName\tAge\tCountry\tSubscription\tWatch Time\tGenre\tLast Login\n";
-                cout << "-------------------------------------------------------------------------------------\n";
-                for (const auto& user : users) {
-                    cout << user.userID << "\t" << user.name << "\t" << user.age << "\t"
-                         << user.country << "\t" << user.subscription << "\t\t"
-                         << user.watchTime << "\t\t" << user.genre << "\t" << user.lastLogin << endl;
-                }
+            int k;
+            cout << "Enter the number of most active users to find: ";
+            cin >> k;
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear input buffer
+
+            vector<User> activeUsers = findMostActiveUsers(users, k);
+            cout << "Most active users:\n";
+            for (const auto& user : activeUsers) {
+                cout << "User ID: " << user.userID << ", Name: " << user.name
+                    << ", Watch Time: " << user.watchTime << " hours, Genre: " << user.genre << endl;
+            }
+            break;
+        }
+        case 9: {
+            if (users.empty()) {
+                cout << "No user data loaded. Please load data first." << endl;
                 break;
             }
-            case 0:
-                cout << "Exiting program. Goodbye!\n";
-                break;
-            default:
-                cout << "Invalid choice. Please try again.\n";
+
+            cout << "All loaded users:\n";
+            cout << "ID\tName\tAge\tCountry\tSubscription\tWatch Time\tGenre\tLast Login\n";
+            cout << "-------------------------------------------------------------------------------------\n";
+            for (const auto& user : users) {
+                cout << user.userID << "\t" << user.name << "\t" << user.age << "\t"
+                    << user.country << "\t" << user.subscription << "\t\t"
+                    << user.watchTime << "\t\t" << user.genre << "\t" << user.lastLogin << endl;
+            }
+            break;
+        }
+        case 0:
+            cout << "Exiting program. Goodbye!\n";
+            break;
+        default:
+            cout << "Invalid choice. Please try again.\n";
         }
     } while (choice != 0);
 
