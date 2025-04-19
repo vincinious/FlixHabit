@@ -13,16 +13,7 @@
 
 using namespace std;
 
-// Structure to hold user pair similarity
-//struct UserSimilarity {
-//    int user1ID;
-//    int user2ID;
-//    double similarity;
-//
-//    bool operator<(const UserSimilarity& other) const {
-//        return similarity > other.similarity; // For min heap to give us highest similarity
-//    }
-//};
+
 
 // Function to calculate similarity score between users
 double calculateSimilarity(const User& user1, const User& user2) {
@@ -275,7 +266,7 @@ int main() {
     int choice;
     string filename;
 
-    cout << "Welcome to the Netflix User Data Relationship Analyzer!\n";
+    cout << "Welcome to FlixHabit: the Netflix User Data Relationship Analyzer!\n";
 
     do {
         displayMenu();
@@ -286,8 +277,15 @@ int main() {
         case 1: {
             cout << "Enter CSV filename: ";
             getline(cin, filename);
-            users = readUsersFromCSV(filename);
-            cout << "Loaded " << users.size() << " users from " << filename << endl;
+
+            /* Direct main to look in relative directory folder 'data' */
+            const string dataWD = "../data/";
+
+            /* User only has to enter the filename */
+            string fullPath = dataWD + filename;
+
+            users = readUsersFromCSV(fullPath);
+            cout << "Loaded " << users.size() << " users from " << fullPath << endl;
             break;
         }
         case 2: {
