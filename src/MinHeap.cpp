@@ -10,6 +10,9 @@ using namespace std;
 template<typename T>
 MinHeap<T>::MinHeap() { }
 
+template<typename T>
+unsigned int MinHeap<T>::getSize() const  { return heap.size(); }
+
 /* Return the parent index */
 template <typename T>
 int MinHeap<T>::getParent(int i)   { return (i - 1) / 2; }

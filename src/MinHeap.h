@@ -28,6 +28,7 @@ class MinHeap
 
         MinHeap();
 
+        unsigned int getSize() const;
         void insert(const T& element);
         T getMin() const;
         void removeMin();

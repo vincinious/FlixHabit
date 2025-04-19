@@ -144,7 +144,8 @@ Graph buildUserGenreGraph(const vector<User>& users) {
     // Create edges between genres based on users who watch multiple genres
     for (size_t i = 0; i < users.size(); i++) {
         for (size_t j = i + 1; j < users.size(); j++) {
-            if (users[i].genre != users[j].genre && users[i].userID == users[j].userID) {
+            if (users[i].genre != users[j].genre) {
+                /* Link the genres together when different users favor the same genre */
                 graph.addEdge(users[i].genre, users[j].genre);
             }
         }
@@ -154,7 +155,7 @@ Graph buildUserGenreGraph(const vector<User>& users) {
 }
 
 // Function to find most similar users using MinHeap
-vector<UserSimilarity> findMostSimilarUsers(const vector<User>& users, int k) {
+vector<UserSimilarity> findMostSimilarUsers(const vector<User>& users, unsigned int k) {
     MinHeap<UserSimilarity> heap;
 
     for (size_t i = 0; i < users.size(); i++) {
@@ -166,8 +167,8 @@ vector<UserSimilarity> findMostSimilarUsers(const vector<User>& users, int k) {
 
             heap.insert(similarity);
 
-            // Keep only the k most similar pairs
-            if (i * users.size() + j >= k) {
+            // Remove all 'least similar' pairs until there are k pairs left
+            if (heap.getSize() > k) {
                 heap.removeMin();
             }
         }
