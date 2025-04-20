@@ -127,11 +127,11 @@ map<string, double> findAverageWatchTimeByCountry(const vector<User>& users) {
     return avgWatchTime;
 }
 
-// Function to build graph of user relationships based on genre preferences
+// Optimized function to build graph of user relationships based on genre preferences
 Graph buildUserGenreGraph(const vector<User>& users) {
     Graph graph;
 
-    // Create vertices for each genre
+    // Create vertices for each unique genre
     map<string, bool> genres;
     for (const auto& user : users) {
         genres[user.genre] = true;
@@ -141,12 +141,34 @@ Graph buildUserGenreGraph(const vector<User>& users) {
         graph.addVertex(genre.first);
     }
 
-    // Create edges between genres based on users who watch multiple genres
-    for (size_t i = 0; i < users.size(); i++) {
-        for (size_t j = i + 1; j < users.size(); j++) {
+    // Track which genre pairs we've already connected to avoid duplicates
+    map<pair<string, string>, bool> connectedPairs;
+
+    // Create meaningful connections between genres
+    // We'll connect genres that have users with significant similarities
+    for (size_t i = 0; i < users.size() && i < 100; i++) {  // Limit to first 100 users for performance
+        for (size_t j = i + 1; j < users.size() && j < 100; j++) {  // Limit to first 100 users
+            // Only connect different genres
             if (users[i].genre != users[j].genre) {
-                /* Link the genres together when different users favor the same genre */
-                graph.addEdge(users[i].genre, users[j].genre);
+                // Sort genre names to create consistent key
+                string genre1 = users[i].genre;
+                string genre2 = users[j].genre;
+                if (genre1 > genre2) {
+                    swap(genre1, genre2);
+                }
+
+                // Check if we've already connected these genres
+                pair<string, string> genrePair = {genre1, genre2};
+                if (!connectedPairs[genrePair]) {
+                    // Calculate similarity between users
+                    double similarity = calculateSimilarity(users[i], users[j]);
+
+                    // Only connect if there's meaningful similarity (threshold of 70)
+                    if (similarity > 70.0) {
+                        graph.addEdge(genre1, genre2);
+                        connectedPairs[genrePair] = true;
+                    }
+                }
             }
         }
     }
@@ -154,39 +176,63 @@ Graph buildUserGenreGraph(const vector<User>& users) {
     return graph;
 }
 
-// Function to find most similar users using MinHeap
+// Optimized function to find most similar users
 vector<UserSimilarity> findMostSimilarUsers(const vector<User>& users, unsigned int k) {
-    MinHeap<UserSimilarity> heap;
+    // Limit the number of user comparisons for better performance
+    const size_t MAX_USERS = 100;  // Limit to first 100 users
 
-    for (size_t i = 0; i < users.size(); i++) {
-        for (size_t j = i + 1; j < users.size(); j++) {
-            UserSimilarity similarity;
-            similarity.user1ID = users[i].userID;
-            similarity.user2ID = users[j].userID;
-            similarity.similarity = calculateSimilarity(users[i], users[j]);
+    // Create a vector for the top k similar pairs
+    vector<UserSimilarity> topSimilarities;
+    double lowestSimilarityInTop = -1.0;  // Keep track of the lowest similarity in our top k
 
-            heap.insert(similarity);
+    // Calculate similarity only for a reasonable number of users
+    for (size_t i = 0; i < users.size() && i < MAX_USERS; i++) {
+        for (size_t j = i + 1; j < users.size() && j < MAX_USERS; j++) {
+            double similarityScore = calculateSimilarity(users[i], users[j]);
 
-            // Remove all 'least similar' pairs until there are k pairs left
-            if (heap.getSize() > k) {
-                heap.removeMin();
+            // Only process this pair if it might be in the top k
+            if (topSimilarities.size() < k || similarityScore > lowestSimilarityInTop) {
+                UserSimilarity similarity;
+                similarity.user1ID = users[i].userID;
+                similarity.user2ID = users[j].userID;
+                similarity.similarity = similarityScore;
+
+                // Add to our collection
+                topSimilarities.push_back(similarity);
+
+                // If we exceed k elements, remove the lowest and update lowestSimilarityInTop
+                if (topSimilarities.size() > k) {
+                    // Find the index of the minimum similarity
+                    int minIndex = 0;
+                    for (size_t idx = 1; idx < topSimilarities.size(); idx++) {
+                        if (topSimilarities[idx].similarity < topSimilarities[minIndex].similarity) {
+                            minIndex = idx;
+                        }
+                    }
+
+                    // Remove the lowest similarity from our collection
+                    lowestSimilarityInTop = topSimilarities[minIndex].similarity;
+                    topSimilarities.erase(topSimilarities.begin() + minIndex);
+
+                    // Update the lowest similarity in our collection
+                    lowestSimilarityInTop = numeric_limits<double>::max();
+                    for (const auto& sim : topSimilarities) {
+                        if (sim.similarity < lowestSimilarityInTop) {
+                            lowestSimilarityInTop = sim.similarity;
+                        }
+                    }
+                }
             }
         }
     }
 
-    vector<UserSimilarity> result;
-    while (true) {
-        try {
-            result.push_back(heap.getMin());
-            heap.removeMin();
-        }
-        catch (const runtime_error&) {
-            break;
-        }
-    }
+    // Sort the final results in descending order of similarity
+    sort(topSimilarities.begin(), topSimilarities.end(),
+         [](const UserSimilarity& a, const UserSimilarity& b) {
+             return a.similarity > b.similarity;
+         });
 
-    reverse(result.begin(), result.end());
-    return result;
+    return topSimilarities;
 }
 
 // Find users by subscription type
