@@ -39,7 +39,7 @@ The frontend ([frontend/](./frontend/)) uses React and `react-force-graph-2d` to
 
 1.  **Clone the repository:**
     ```bash
-    git clone <your-repository-url>
+    git clone <https://github.com/vincinious/FlixHabit.git>
     cd FlixHabit
     ```
 
