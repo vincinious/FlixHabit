@@ -92,7 +92,7 @@ export default function App() {
 
   /* -------------- UI -------------- */
   return (
-    <div className="dark min-h-screen bg-neutral-900 font-inter text-neutral-100">
+    <div className="dark min-h-screen bg-neutral-900 font-inter text-neutral-100 pb-4">
       <ScrollArea className="h-screen w-screen p-6">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
