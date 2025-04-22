@@ -10,6 +10,9 @@
 #include <fstream>
 #include <sstream>
 #include <limits>
+#include <iomanip>   // for std::setprecision
+#include <nlohmann/json.hpp>
+#include <filesystem>
 
 using namespace std;
 
@@ -235,6 +238,33 @@ vector<UserSimilarity> findMostSimilarUsers(const vector<User>& users, unsigned 
     return topSimilarities;
 }
 
+void writeSimilaritiesToJSON(const std::vector<UserSimilarity>& sims,
+                             const std::filesystem::path& filePath)
+{
+    namespace fs = std::filesystem;
+    using nlohmann::json;
+
+    fs::create_directories(filePath.parent_path());
+
+    json j = json::array();
+    for (const auto& s : sims) {
+        j.push_back({
+            {"user1ID",    s.user1ID},
+            {"user2ID",    s.user2ID},
+            {"similarity", s.similarity}
+        });
+    }
+
+    std::ofstream out(filePath);
+    if (!out) {
+        std::cerr << "Cannot write to " << fs::absolute(filePath) << '\n';
+        return;
+    }
+    out << j.dump(2);
+    std::cout << "✅  Wrote " << sims.size() << " pairs → "
+              << fs::absolute(filePath) << '\n';
+}
+
 // Find users by subscription type
 vector<User> findUsersBySubscription(const vector<User>& users, const string& subscriptionType) {
     vector<User> result;
@@ -247,6 +277,43 @@ vector<User> findUsersBySubscription(const vector<User>& users, const string& su
 
     return result;
 }
+
+nlohmann::json usersToJson(const std::vector<User>& users)
+{
+    using nlohmann::json;
+
+    json arr = json::array();
+    for (const auto& u : users)
+        arr.push_back({
+            {"userID",    u.userID},
+            {"name",      u.name},
+            {"age",       u.age},
+            {"country",   u.country},
+            {"subscription", u.subscription},
+            {"watchTime", u.watchTime},
+            {"genre",     u.genre},
+            {"lastLogin", u.lastLogin}
+        });
+
+    return arr;        // e.g. [ {…}, {…}, … ]
+}
+
+bool writeJsonToFile(const nlohmann::json& j,
+                     const std::filesystem::path& filePath,
+                     int indent = 2)      // default pretty‑print
+{
+    namespace fs = std::filesystem;
+    fs::create_directories(filePath.parent_path());   // mkdir -p
+
+    std::ofstream out(filePath);
+    if (!out) {
+        std::cerr << "Cannot open " << fs::absolute(filePath) << '\n';
+        return false;
+    }
+    out << j.dump(indent);
+    return true;
+}
+
 
 // Find most active users (highest watch time)
 vector<User> findMostActiveUsers(const vector<User>& users, int k) {
@@ -346,19 +413,38 @@ int main() {
                 break;
             }
 
-            int minAge, maxAge;
-            cout << "Enter minimum age: ";
-            cin >> minAge;
-            cout << "Enter maximum age: ";
-            cin >> maxAge;
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear input buffer
+            int minAge = 15, maxAge = 80;
+            nlohmann::json buckets = nlohmann::json::array();
 
-            string genre = findMostCommonGenreForAgeGroup(users, minAge, maxAge);
-            if (genre.empty()) {
-                cout << "No users found in the specified age range." << endl;
+            // cout << "Enter minimum age: ";
+            // cin >> minAge;
+            // cout << "Enter maximum age: ";
+            // cin >> maxAge;
+            // cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear input buffer
+
+            for (int lo = minAge; lo < maxAge; lo += 5) {
+                int hi = lo + 5;            // 15‑20, 20‑25
+
+                std::string genre = findMostCommonGenreForAgeGroup(users, lo, hi);
+
+                if (genre.empty()) {
+                    cout << "  " << lo << "-" << hi << ": (no users)\n";
+                    continue;
+                }
+
+                cout << "  " << lo << "-" << hi << ": " << genre << '\n';
+
+                buckets.push_back({
+                    {"ageRange", std::to_string(lo) + "-" + std::to_string(hi)},
+                    {"genre",    genre}
+                });
             }
-            else {
-                cout << "Most common genre for age group " << minAge << "-" << maxAge << ": " << genre << endl;
+
+            // Write the whole array once
+            {
+                std::filesystem::create_directories("../frontend/public/data");
+                std::ofstream out("../frontend/flixhabit-frontend/public/data/genreForAgeGroup.json");
+                out << buckets.dump(2);
             }
             break;
         }
@@ -370,9 +456,23 @@ int main() {
 
             map<string, double> avgWatchTime = findAverageWatchTimeByCountry(users);
             cout << "Average watch time by country:\n";
+
             for (const auto& pair : avgWatchTime) {
                 cout << pair.first << ": " << pair.second << " hours\n";
             }
+
+            nlohmann::json j;
+            for (const auto& [country, hrs] : avgWatchTime)
+                j[country] = hrs;
+
+            // ④ write it once
+            {
+                namespace fs = std::filesystem;
+                fs::create_directories("../frontend/public/data");
+                std::ofstream out("../frontend/flixhabit-frontend/public/data/avgWatchTimeByCountry.json");
+                out << j.dump(2);
+            }
+
             break;
         }
         case 5: {
@@ -398,6 +498,8 @@ int main() {
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear input buffer
 
             vector<UserSimilarity> similarUsers = findMostSimilarUsers(users, k);
+            writeSimilaritiesToJSON(similarUsers, "../frontend/flixhabit-frontend/public/data/similar_users.json");
+
             cout << "Most similar users:\n";
             for (const auto& pair : similarUsers) {
                 cout << "User " << pair.user1ID << " and User " << pair.user2ID
@@ -416,6 +518,11 @@ int main() {
             getline(cin, subType);
 
             vector<User> filteredUsers = findUsersBySubscription(users, subType);
+            nlohmann::json j = usersToJson(filteredUsers);
+
+            writeJsonToFile(j,
+                "../frontend/flixhabit-frontend/public/data/" + subType + "_users.json");
+
             if (filteredUsers.empty()) {
                 cout << "No users found with " << subType << " subscription." << endl;
             }
@@ -440,6 +547,11 @@ int main() {
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear input buffer
 
             vector<User> activeUsers = findMostActiveUsers(users, k);
+            nlohmann::json j = usersToJson(activeUsers);
+
+            writeJsonToFile(j,
+                "../frontend/flixhabit-frontend/public/data/topActive_users.json");
+
             cout << "Most active users:\n";
             for (const auto& user : activeUsers) {
                 cout << "User ID: " << user.userID << ", Name: " << user.name

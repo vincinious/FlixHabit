@@ -1,0 +1,1002 @@
+[
+  {
+    "age": 70,
+    "country": "Canada",
+    "genre": "Romance",
+    "lastLogin": "2025-02-14",
+    "name": "Chris Brown",
+    "subscription": "Standard",
+    "userID": 3941,
+    "watchTime": 999.99
+  },
+  {
+    "age": 62,
+    "country": "Brazil",
+    "genre": "Action",
+    "lastLogin": "2024-05-10",
+    "name": "Chris Johnson",
+    "subscription": "Premium",
+    "userID": 21373,
+    "watchTime": 999.96
+  },
+  {
+    "age": 52,
+    "country": "Brazil",
+    "genre": "Romance",
+    "lastLogin": "2024-10-26",
+    "name": "Chris Miller",
+    "subscription": "Basic",
+    "userID": 23706,
+    "watchTime": 999.87
+  },
+  {
+    "age": 55,
+    "country": "Germany",
+    "genre": "Horror",
+    "lastLogin": "2025-02-07",
+    "name": "Chris Martinez",
+    "subscription": "Premium",
+    "userID": 11589,
+    "watchTime": 999.75
+  },
+  {
+    "age": 41,
+    "country": "Mexico",
+    "genre": "Drama",
+    "lastLogin": "2025-02-04",
+    "name": "James Hernandez",
+    "subscription": "Basic",
+    "userID": 24861,
+    "watchTime": 999.73
+  },
+  {
+    "age": 52,
+    "country": "Australia",
+    "genre": "Drama",
+    "lastLogin": "2024-06-27",
+    "name": "Alex Martinez",
+    "subscription": "Premium",
+    "userID": 6407,
+    "watchTime": 999.73
+  },
+  {
+    "age": 46,
+    "country": "UK",
+    "genre": "Documentary",
+    "lastLogin": "2025-01-16",
+    "name": "Jane Williams",
+    "subscription": "Premium",
+    "userID": 4063,
+    "watchTime": 999.72
+  },
+  {
+    "age": 37,
+    "country": "Brazil",
+    "genre": "Romance",
+    "lastLogin": "2025-01-23",
+    "name": "Sarah Williams",
+    "subscription": "Premium",
+    "userID": 19236,
+    "watchTime": 999.58
+  },
+  {
+    "age": 54,
+    "country": "Germany",
+    "genre": "Romance",
+    "lastLogin": "2024-11-10",
+    "name": "Sarah Johnson",
+    "subscription": "Premium",
+    "userID": 22449,
+    "watchTime": 999.46
+  },
+  {
+    "age": 25,
+    "country": "Canada",
+    "genre": "Comedy",
+    "lastLogin": "2024-10-22",
+    "name": "James Hernandez",
+    "subscription": "Premium",
+    "userID": 915,
+    "watchTime": 999.36
+  },
+  {
+    "age": 70,
+    "country": "Australia",
+    "genre": "Documentary",
+    "lastLogin": "2024-03-29",
+    "name": "Michael Smith",
+    "subscription": "Standard",
+    "userID": 7087,
+    "watchTime": 999.32
+  },
+  {
+    "age": 68,
+    "country": "Germany",
+    "genre": "Horror",
+    "lastLogin": "2024-08-12",
+    "name": "Jane Garcia",
+    "subscription": "Premium",
+    "userID": 1346,
+    "watchTime": 999.29
+  },
+  {
+    "age": 33,
+    "country": "Brazil",
+    "genre": "Sci-Fi",
+    "lastLogin": "2024-06-27",
+    "name": "Chris Smith",
+    "subscription": "Basic",
+    "userID": 21720,
+    "watchTime": 999.27
+  },
+  {
+    "age": 55,
+    "country": "Australia",
+    "genre": "Horror",
+    "lastLogin": "2025-02-11",
+    "name": "Katie Smith",
+    "subscription": "Basic",
+    "userID": 3612,
+    "watchTime": 999.27
+  },
+  {
+    "age": 38,
+    "country": "Mexico",
+    "genre": "Comedy",
+    "lastLogin": "2024-10-21",
+    "name": "Katie Johnson",
+    "subscription": "Basic",
+    "userID": 22671,
+    "watchTime": 999.26
+  },
+  {
+    "age": 18,
+    "country": "Australia",
+    "genre": "Drama",
+    "lastLogin": "2024-12-14",
+    "name": "Chris Smith",
+    "subscription": "Basic",
+    "userID": 20195,
+    "watchTime": 999.25
+  },
+  {
+    "age": 31,
+    "country": "France",
+    "genre": "Comedy",
+    "lastLogin": "2024-08-10",
+    "name": "David Johnson",
+    "subscription": "Premium",
+    "userID": 15985,
+    "watchTime": 999.2
+  },
+  {
+    "age": 34,
+    "country": "Australia",
+    "genre": "Romance",
+    "lastLogin": "2024-08-25",
+    "name": "Michael Williams",
+    "subscription": "Premium",
+    "userID": 12214,
+    "watchTime": 999.18
+  },
+  {
+    "age": 20,
+    "country": "France",
+    "genre": "Action",
+    "lastLogin": "2025-01-10",
+    "name": "David Smith",
+    "subscription": "Basic",
+    "userID": 12125,
+    "watchTime": 999.18
+  },
+  {
+    "age": 22,
+    "country": "UK",
+    "genre": "Horror",
+    "lastLogin": "2024-12-12",
+    "name": "John Williams",
+    "subscription": "Standard",
+    "userID": 21686,
+    "watchTime": 999.18
+  },
+  {
+    "age": 18,
+    "country": "Japan",
+    "genre": "Documentary",
+    "lastLogin": "2024-09-24",
+    "name": "Chris Smith",
+    "subscription": "Standard",
+    "userID": 12357,
+    "watchTime": 999.18
+  },
+  {
+    "age": 38,
+    "country": "France",
+    "genre": "Comedy",
+    "lastLogin": "2024-06-11",
+    "name": "Alex Davis",
+    "subscription": "Basic",
+    "userID": 144,
+    "watchTime": 999.14
+  },
+  {
+    "age": 68,
+    "country": "Australia",
+    "genre": "Comedy",
+    "lastLogin": "2024-12-27",
+    "name": "Katie Jones",
+    "subscription": "Basic",
+    "userID": 13522,
+    "watchTime": 999.12
+  },
+  {
+    "age": 43,
+    "country": "India",
+    "genre": "Documentary",
+    "lastLogin": "2024-11-18",
+    "name": "Alex Davis",
+    "subscription": "Basic",
+    "userID": 7396,
+    "watchTime": 999.05
+  },
+  {
+    "age": 46,
+    "country": "Germany",
+    "genre": "Drama",
+    "lastLogin": "2024-12-12",
+    "name": "Alex Martinez",
+    "subscription": "Basic",
+    "userID": 10398,
+    "watchTime": 999.01
+  },
+  {
+    "age": 20,
+    "country": "Mexico",
+    "genre": "Comedy",
+    "lastLogin": "2024-05-01",
+    "name": "Sarah Miller",
+    "subscription": "Premium",
+    "userID": 8728,
+    "watchTime": 998.95
+  },
+  {
+    "age": 40,
+    "country": "Mexico",
+    "genre": "Documentary",
+    "lastLogin": "2024-05-18",
+    "name": "Chris Martinez",
+    "subscription": "Premium",
+    "userID": 10121,
+    "watchTime": 998.95
+  },
+  {
+    "age": 24,
+    "country": "Canada",
+    "genre": "Action",
+    "lastLogin": "2025-02-08",
+    "name": "Michael Jones",
+    "subscription": "Standard",
+    "userID": 8225,
+    "watchTime": 998.95
+  },
+  {
+    "age": 38,
+    "country": "USA",
+    "genre": "Documentary",
+    "lastLogin": "2024-11-27",
+    "name": "Sarah Garcia",
+    "subscription": "Standard",
+    "userID": 11234,
+    "watchTime": 998.93
+  },
+  {
+    "age": 26,
+    "country": "USA",
+    "genre": "Drama",
+    "lastLogin": "2024-09-11",
+    "name": "Alex Garcia",
+    "subscription": "Premium",
+    "userID": 7115,
+    "watchTime": 998.92
+  },
+  {
+    "age": 78,
+    "country": "Australia",
+    "genre": "Comedy",
+    "lastLogin": "2025-01-04",
+    "name": "James Smith",
+    "subscription": "Standard",
+    "userID": 9434,
+    "watchTime": 998.87
+  },
+  {
+    "age": 17,
+    "country": "Canada",
+    "genre": "Drama",
+    "lastLogin": "2024-06-24",
+    "name": "Sarah Hernandez",
+    "subscription": "Basic",
+    "userID": 8756,
+    "watchTime": 998.87
+  },
+  {
+    "age": 71,
+    "country": "India",
+    "genre": "Drama",
+    "lastLogin": "2024-08-06",
+    "name": "Jane Smith",
+    "subscription": "Premium",
+    "userID": 17612,
+    "watchTime": 998.82
+  },
+  {
+    "age": 14,
+    "country": "Mexico",
+    "genre": "Romance",
+    "lastLogin": "2024-12-14",
+    "name": "James Williams",
+    "subscription": "Basic",
+    "userID": 9466,
+    "watchTime": 998.81
+  },
+  {
+    "age": 27,
+    "country": "Australia",
+    "genre": "Comedy",
+    "lastLogin": "2024-05-03",
+    "name": "Jane Miller",
+    "subscription": "Premium",
+    "userID": 2495,
+    "watchTime": 998.81
+  },
+  {
+    "age": 13,
+    "country": "France",
+    "genre": "Action",
+    "lastLogin": "2024-05-25",
+    "name": "Emma Jones",
+    "subscription": "Basic",
+    "userID": 21474,
+    "watchTime": 998.79
+  },
+  {
+    "age": 27,
+    "country": "Brazil",
+    "genre": "Sci-Fi",
+    "lastLogin": "2024-05-18",
+    "name": "Alex Brown",
+    "subscription": "Premium",
+    "userID": 23392,
+    "watchTime": 998.76
+  },
+  {
+    "age": 64,
+    "country": "Australia",
+    "genre": "Horror",
+    "lastLogin": "2024-08-25",
+    "name": "John Johnson",
+    "subscription": "Standard",
+    "userID": 13055,
+    "watchTime": 998.74
+  },
+  {
+    "age": 17,
+    "country": "USA",
+    "genre": "Documentary",
+    "lastLogin": "2024-11-11",
+    "name": "Chris Miller",
+    "subscription": "Basic",
+    "userID": 23279,
+    "watchTime": 998.72
+  },
+  {
+    "age": 79,
+    "country": "UK",
+    "genre": "Comedy",
+    "lastLogin": "2024-04-18",
+    "name": "Emma Hernandez",
+    "subscription": "Basic",
+    "userID": 12574,
+    "watchTime": 998.68
+  },
+  {
+    "age": 15,
+    "country": "Germany",
+    "genre": "Horror",
+    "lastLogin": "2025-01-26",
+    "name": "Sarah Garcia",
+    "subscription": "Premium",
+    "userID": 914,
+    "watchTime": 998.67
+  },
+  {
+    "age": 75,
+    "country": "France",
+    "genre": "Drama",
+    "lastLogin": "2024-03-10",
+    "name": "John Williams",
+    "subscription": "Premium",
+    "userID": 11765,
+    "watchTime": 998.66
+  },
+  {
+    "age": 34,
+    "country": "Brazil",
+    "genre": "Sci-Fi",
+    "lastLogin": "2024-09-06",
+    "name": "Emma Williams",
+    "subscription": "Premium",
+    "userID": 22908,
+    "watchTime": 998.56
+  },
+  {
+    "age": 79,
+    "country": "Canada",
+    "genre": "Romance",
+    "lastLogin": "2024-12-14",
+    "name": "Chris Jones",
+    "subscription": "Basic",
+    "userID": 21541,
+    "watchTime": 998.55
+  },
+  {
+    "age": 14,
+    "country": "Brazil",
+    "genre": "Sci-Fi",
+    "lastLogin": "2024-08-31",
+    "name": "Jane Smith",
+    "subscription": "Premium",
+    "userID": 23460,
+    "watchTime": 998.54
+  },
+  {
+    "age": 69,
+    "country": "Brazil",
+    "genre": "Documentary",
+    "lastLogin": "2024-03-15",
+    "name": "Katie Smith",
+    "subscription": "Standard",
+    "userID": 9095,
+    "watchTime": 998.53
+  },
+  {
+    "age": 35,
+    "country": "Australia",
+    "genre": "Drama",
+    "lastLogin": "2024-10-21",
+    "name": "Sarah Jones",
+    "subscription": "Standard",
+    "userID": 5734,
+    "watchTime": 998.52
+  },
+  {
+    "age": 70,
+    "country": "Canada",
+    "genre": "Action",
+    "lastLogin": "2024-09-05",
+    "name": "Jane Hernandez",
+    "subscription": "Premium",
+    "userID": 6611,
+    "watchTime": 998.52
+  },
+  {
+    "age": 18,
+    "country": "France",
+    "genre": "Documentary",
+    "lastLogin": "2025-03-07",
+    "name": "John Martinez",
+    "subscription": "Basic",
+    "userID": 20451,
+    "watchTime": 998.44
+  },
+  {
+    "age": 64,
+    "country": "USA",
+    "genre": "Comedy",
+    "lastLogin": "2024-08-10",
+    "name": "Jane Johnson",
+    "subscription": "Basic",
+    "userID": 318,
+    "watchTime": 998.4
+  },
+  {
+    "age": 36,
+    "country": "France",
+    "genre": "Drama",
+    "lastLogin": "2024-09-02",
+    "name": "Katie Martinez",
+    "subscription": "Basic",
+    "userID": 1671,
+    "watchTime": 998.4
+  },
+  {
+    "age": 48,
+    "country": "India",
+    "genre": "Horror",
+    "lastLogin": "2024-06-08",
+    "name": "Michael Garcia",
+    "subscription": "Basic",
+    "userID": 2578,
+    "watchTime": 998.35
+  },
+  {
+    "age": 72,
+    "country": "Australia",
+    "genre": "Action",
+    "lastLogin": "2024-09-14",
+    "name": "Alex Johnson",
+    "subscription": "Premium",
+    "userID": 3856,
+    "watchTime": 998.35
+  },
+  {
+    "age": 23,
+    "country": "Brazil",
+    "genre": "Horror",
+    "lastLogin": "2024-10-07",
+    "name": "Sarah Davis",
+    "subscription": "Standard",
+    "userID": 20126,
+    "watchTime": 998.32
+  },
+  {
+    "age": 67,
+    "country": "Mexico",
+    "genre": "Drama",
+    "lastLogin": "2024-11-27",
+    "name": "Emma Smith",
+    "subscription": "Premium",
+    "userID": 4136,
+    "watchTime": 998.32
+  },
+  {
+    "age": 77,
+    "country": "Mexico",
+    "genre": "Sci-Fi",
+    "lastLogin": "2024-06-09",
+    "name": "Chris Miller",
+    "subscription": "Premium",
+    "userID": 10631,
+    "watchTime": 998.3
+  },
+  {
+    "age": 33,
+    "country": "USA",
+    "genre": "Comedy",
+    "lastLogin": "2024-07-26",
+    "name": "Jane Martinez",
+    "subscription": "Basic",
+    "userID": 11226,
+    "watchTime": 998.21
+  },
+  {
+    "age": 35,
+    "country": "Mexico",
+    "genre": "Documentary",
+    "lastLogin": "2025-03-01",
+    "name": "David Smith",
+    "subscription": "Premium",
+    "userID": 22912,
+    "watchTime": 998.17
+  },
+  {
+    "age": 37,
+    "country": "Germany",
+    "genre": "Sci-Fi",
+    "lastLogin": "2024-12-27",
+    "name": "Alex Johnson",
+    "subscription": "Standard",
+    "userID": 24262,
+    "watchTime": 998.16
+  },
+  {
+    "age": 26,
+    "country": "Japan",
+    "genre": "Action",
+    "lastLogin": "2024-09-28",
+    "name": "Alex Jones",
+    "subscription": "Premium",
+    "userID": 4556,
+    "watchTime": 998.13
+  },
+  {
+    "age": 77,
+    "country": "USA",
+    "genre": "Documentary",
+    "lastLogin": "2024-11-30",
+    "name": "Michael Miller",
+    "subscription": "Premium",
+    "userID": 22457,
+    "watchTime": 998.07
+  },
+  {
+    "age": 22,
+    "country": "Brazil",
+    "genre": "Romance",
+    "lastLogin": "2024-08-21",
+    "name": "James Johnson",
+    "subscription": "Basic",
+    "userID": 4550,
+    "watchTime": 998.01
+  },
+  {
+    "age": 80,
+    "country": "Australia",
+    "genre": "Comedy",
+    "lastLogin": "2024-08-21",
+    "name": "Chris Jones",
+    "subscription": "Basic",
+    "userID": 12002,
+    "watchTime": 997.91
+  },
+  {
+    "age": 62,
+    "country": "Germany",
+    "genre": "Horror",
+    "lastLogin": "2024-07-25",
+    "name": "Michael Brown",
+    "subscription": "Premium",
+    "userID": 24573,
+    "watchTime": 997.91
+  },
+  {
+    "age": 35,
+    "country": "Australia",
+    "genre": "Sci-Fi",
+    "lastLogin": "2024-11-13",
+    "name": "Jane Smith",
+    "subscription": "Standard",
+    "userID": 8288,
+    "watchTime": 997.85
+  },
+  {
+    "age": 14,
+    "country": "USA",
+    "genre": "Sci-Fi",
+    "lastLogin": "2024-08-21",
+    "name": "John Smith",
+    "subscription": "Premium",
+    "userID": 20633,
+    "watchTime": 997.85
+  },
+  {
+    "age": 60,
+    "country": "France",
+    "genre": "Documentary",
+    "lastLogin": "2024-12-11",
+    "name": "Jane Garcia",
+    "subscription": "Premium",
+    "userID": 20407,
+    "watchTime": 997.83
+  },
+  {
+    "age": 49,
+    "country": "Australia",
+    "genre": "Comedy",
+    "lastLogin": "2024-08-14",
+    "name": "Chris Smith",
+    "subscription": "Premium",
+    "userID": 60,
+    "watchTime": 997.8
+  },
+  {
+    "age": 52,
+    "country": "USA",
+    "genre": "Sci-Fi",
+    "lastLogin": "2024-03-19",
+    "name": "Sarah Brown",
+    "subscription": "Premium",
+    "userID": 10371,
+    "watchTime": 997.74
+  },
+  {
+    "age": 13,
+    "country": "France",
+    "genre": "Horror",
+    "lastLogin": "2024-04-08",
+    "name": "Katie Jones",
+    "subscription": "Premium",
+    "userID": 5247,
+    "watchTime": 997.63
+  },
+  {
+    "age": 73,
+    "country": "USA",
+    "genre": "Comedy",
+    "lastLogin": "2024-09-29",
+    "name": "David Brown",
+    "subscription": "Premium",
+    "userID": 4637,
+    "watchTime": 997.6
+  },
+  {
+    "age": 33,
+    "country": "France",
+    "genre": "Drama",
+    "lastLogin": "2025-02-02",
+    "name": "Emma Brown",
+    "subscription": "Premium",
+    "userID": 19333,
+    "watchTime": 997.58
+  },
+  {
+    "age": 71,
+    "country": "Mexico",
+    "genre": "Romance",
+    "lastLogin": "2024-10-25",
+    "name": "Emma Hernandez",
+    "subscription": "Premium",
+    "userID": 9344,
+    "watchTime": 997.56
+  },
+  {
+    "age": 76,
+    "country": "India",
+    "genre": "Documentary",
+    "lastLogin": "2024-10-02",
+    "name": "Chris Jones",
+    "subscription": "Premium",
+    "userID": 3329,
+    "watchTime": 997.55
+  },
+  {
+    "age": 80,
+    "country": "Australia",
+    "genre": "Documentary",
+    "lastLogin": "2025-01-02",
+    "name": "Emma Hernandez",
+    "subscription": "Standard",
+    "userID": 24273,
+    "watchTime": 997.44
+  },
+  {
+    "age": 24,
+    "country": "Canada",
+    "genre": "Comedy",
+    "lastLogin": "2024-03-29",
+    "name": "Katie Hernandez",
+    "subscription": "Premium",
+    "userID": 22190,
+    "watchTime": 997.37
+  },
+  {
+    "age": 38,
+    "country": "Japan",
+    "genre": "Horror",
+    "lastLogin": "2024-03-25",
+    "name": "Emma Jones",
+    "subscription": "Standard",
+    "userID": 5449,
+    "watchTime": 997.25
+  },
+  {
+    "age": 37,
+    "country": "Germany",
+    "genre": "Sci-Fi",
+    "lastLogin": "2024-06-29",
+    "name": "Jane Johnson",
+    "subscription": "Standard",
+    "userID": 7023,
+    "watchTime": 997.11
+  },
+  {
+    "age": 56,
+    "country": "Brazil",
+    "genre": "Documentary",
+    "lastLogin": "2024-12-21",
+    "name": "Katie Johnson",
+    "subscription": "Standard",
+    "userID": 11075,
+    "watchTime": 997.03
+  },
+  {
+    "age": 36,
+    "country": "Australia",
+    "genre": "Comedy",
+    "lastLogin": "2024-08-26",
+    "name": "David Brown",
+    "subscription": "Standard",
+    "userID": 10650,
+    "watchTime": 997.02
+  },
+  {
+    "age": 43,
+    "country": "USA",
+    "genre": "Documentary",
+    "lastLogin": "2024-04-05",
+    "name": "Katie Brown",
+    "subscription": "Basic",
+    "userID": 16052,
+    "watchTime": 997.01
+  },
+  {
+    "age": 29,
+    "country": "Japan",
+    "genre": "Drama",
+    "lastLogin": "2024-04-28",
+    "name": "Sarah Williams",
+    "subscription": "Standard",
+    "userID": 13025,
+    "watchTime": 996.98
+  },
+  {
+    "age": 47,
+    "country": "UK",
+    "genre": "Documentary",
+    "lastLogin": "2024-10-10",
+    "name": "John Hernandez",
+    "subscription": "Premium",
+    "userID": 4468,
+    "watchTime": 996.97
+  },
+  {
+    "age": 52,
+    "country": "France",
+    "genre": "Romance",
+    "lastLogin": "2025-03-06",
+    "name": "David Jones",
+    "subscription": "Basic",
+    "userID": 16015,
+    "watchTime": 996.78
+  },
+  {
+    "age": 72,
+    "country": "India",
+    "genre": "Sci-Fi",
+    "lastLogin": "2025-01-24",
+    "name": "David Smith",
+    "subscription": "Premium",
+    "userID": 2088,
+    "watchTime": 996.71
+  },
+  {
+    "age": 57,
+    "country": "Canada",
+    "genre": "Horror",
+    "lastLogin": "2025-03-02",
+    "name": "David Jones",
+    "subscription": "Premium",
+    "userID": 1123,
+    "watchTime": 996.66
+  },
+  {
+    "age": 45,
+    "country": "Germany",
+    "genre": "Sci-Fi",
+    "lastLogin": "2024-03-10",
+    "name": "John Jones",
+    "subscription": "Standard",
+    "userID": 288,
+    "watchTime": 996.64
+  },
+  {
+    "age": 24,
+    "country": "Japan",
+    "genre": "Action",
+    "lastLogin": "2024-12-25",
+    "name": "Alex Brown",
+    "subscription": "Standard",
+    "userID": 3026,
+    "watchTime": 996.64
+  },
+  {
+    "age": 32,
+    "country": "UK",
+    "genre": "Horror",
+    "lastLogin": "2024-04-24",
+    "name": "Katie Hernandez",
+    "subscription": "Standard",
+    "userID": 18401,
+    "watchTime": 996.58
+  },
+  {
+    "age": 30,
+    "country": "Brazil",
+    "genre": "Comedy",
+    "lastLogin": "2024-08-18",
+    "name": "Michael Jones",
+    "subscription": "Basic",
+    "userID": 584,
+    "watchTime": 996.55
+  },
+  {
+    "age": 19,
+    "country": "Germany",
+    "genre": "Horror",
+    "lastLogin": "2024-09-26",
+    "name": "Michael Martinez",
+    "subscription": "Premium",
+    "userID": 24752,
+    "watchTime": 996.52
+  },
+  {
+    "age": 56,
+    "country": "Germany",
+    "genre": "Horror",
+    "lastLogin": "2025-02-06",
+    "name": "John Jones",
+    "subscription": "Standard",
+    "userID": 9431,
+    "watchTime": 996.46
+  },
+  {
+    "age": 31,
+    "country": "Brazil",
+    "genre": "Drama",
+    "lastLogin": "2024-12-17",
+    "name": "Emma Jones",
+    "subscription": "Premium",
+    "userID": 9527,
+    "watchTime": 996.43
+  },
+  {
+    "age": 28,
+    "country": "India",
+    "genre": "Action",
+    "lastLogin": "2024-04-28",
+    "name": "Katie Smith",
+    "subscription": "Standard",
+    "userID": 19311,
+    "watchTime": 996.37
+  },
+  {
+    "age": 29,
+    "country": "Japan",
+    "genre": "Action",
+    "lastLogin": "2024-06-10",
+    "name": "Jane Williams",
+    "subscription": "Premium",
+    "userID": 17350,
+    "watchTime": 996.34
+  },
+  {
+    "age": 22,
+    "country": "Canada",
+    "genre": "Drama",
+    "lastLogin": "2024-06-23",
+    "name": "Jane Brown",
+    "subscription": "Premium",
+    "userID": 21612,
+    "watchTime": 996.19
+  },
+  {
+    "age": 19,
+    "country": "Mexico",
+    "genre": "Drama",
+    "lastLogin": "2024-10-15",
+    "name": "Jane Miller",
+    "subscription": "Premium",
+    "userID": 22517,
+    "watchTime": 996.16
+  },
+  {
+    "age": 71,
+    "country": "Japan",
+    "genre": "Drama",
+    "lastLogin": "2025-01-14",
+    "name": "Alex Miller",
+    "subscription": "Basic",
+    "userID": 12400,
+    "watchTime": 996.15
+  },
+  {
+    "age": 62,
+    "country": "France",
+    "genre": "Action",
+    "lastLogin": "2025-01-02",
+    "name": "John Smith",
+    "subscription": "Premium",
+    "userID": 12580,
+    "watchTime": 996.1
+  },
+  {
+    "age": 26,
+    "country": "India",
+    "genre": "Romance",
+    "lastLogin": "2025-02-02",
+    "name": "John Martinez",
+    "subscription": "Premium",
+    "userID": 20956,
+    "watchTime": 996.1
+  }
+]

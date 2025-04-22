@@ -1,0 +1,502 @@
+[
+  {
+    "similarity": 180.46496489515042,
+    "user1ID": 8,
+    "user2ID": 15
+  },
+  {
+    "similarity": 171.38083402375034,
+    "user1ID": 42,
+    "user2ID": 66
+  },
+  {
+    "similarity": 170.4273686909697,
+    "user1ID": 67,
+    "user2ID": 79
+  },
+  {
+    "similarity": 170.20797803751924,
+    "user1ID": 52,
+    "user2ID": 64
+  },
+  {
+    "similarity": 169.93006993006958,
+    "user1ID": 8,
+    "user2ID": 44
+  },
+  {
+    "similarity": 154.82392667631453,
+    "user1ID": 54,
+    "user2ID": 67
+  },
+  {
+    "similarity": 153.94011032308904,
+    "user1ID": 7,
+    "user2ID": 99
+  },
+  {
+    "similarity": 151.02040816326436,
+    "user1ID": 17,
+    "user2ID": 83
+  },
+  {
+    "similarity": 150.8067769261799,
+    "user1ID": 13,
+    "user2ID": 53
+  },
+  {
+    "similarity": 150.3941352672237,
+    "user1ID": 54,
+    "user2ID": 79
+  },
+  {
+    "similarity": 150.38311240517967,
+    "user1ID": 35,
+    "user2ID": 75
+  },
+  {
+    "similarity": 150.21252630012964,
+    "user1ID": 61,
+    "user2ID": 81
+  },
+  {
+    "similarity": 150.19387735318637,
+    "user1ID": 52,
+    "user2ID": 57
+  },
+  {
+    "similarity": 150.16454946356876,
+    "user1ID": 62,
+    "user2ID": 92
+  },
+  {
+    "similarity": 150.14956625785223,
+    "user1ID": 3,
+    "user2ID": 78
+  },
+  {
+    "similarity": 150.13070699413126,
+    "user1ID": 5,
+    "user2ID": 8
+  },
+  {
+    "similarity": 150.12490163995852,
+    "user1ID": 35,
+    "user2ID": 76
+  },
+  {
+    "similarity": 145.0,
+    "user1ID": 58,
+    "user2ID": 98
+  },
+  {
+    "similarity": 142.07505518763796,
+    "user1ID": 39,
+    "user2ID": 61
+  },
+  {
+    "similarity": 138.96551724137714,
+    "user1ID": 42,
+    "user2ID": 59
+  },
+  {
+    "similarity": 138.19848975187966,
+    "user1ID": 21,
+    "user2ID": 64
+  },
+  {
+    "similarity": 134.1044622660909,
+    "user1ID": 20,
+    "user2ID": 53
+  },
+  {
+    "similarity": 133.58094389144753,
+    "user1ID": 55,
+    "user2ID": 81
+  },
+  {
+    "similarity": 130.45038958699274,
+    "user1ID": 32,
+    "user2ID": 67
+  },
+  {
+    "similarity": 130.4294979169351,
+    "user1ID": 22,
+    "user2ID": 24
+  },
+  {
+    "similarity": 130.32101698179835,
+    "user1ID": 49,
+    "user2ID": 99
+  },
+  {
+    "similarity": 130.21094376239296,
+    "user1ID": 39,
+    "user2ID": 81
+  },
+  {
+    "similarity": 130.2071036553795,
+    "user1ID": 82,
+    "user2ID": 88
+  },
+  {
+    "similarity": 130.18148820326678,
+    "user1ID": 5,
+    "user2ID": 15
+  },
+  {
+    "similarity": 130.17479156106344,
+    "user1ID": 16,
+    "user2ID": 48
+  },
+  {
+    "similarity": 130.1374494873134,
+    "user1ID": 39,
+    "user2ID": 89
+  },
+  {
+    "similarity": 130.1293761482133,
+    "user1ID": 28,
+    "user2ID": 96
+  },
+  {
+    "similarity": 128.61471861472228,
+    "user1ID": 36,
+    "user2ID": 78
+  },
+  {
+    "similarity": 128.02281368821298,
+    "user1ID": 1,
+    "user2ID": 31
+  },
+  {
+    "similarity": 122.78009452321379,
+    "user1ID": 57,
+    "user2ID": 64
+  },
+  {
+    "similarity": 121.5552099533437,
+    "user1ID": 24,
+    "user2ID": 77
+  },
+  {
+    "similarity": 120.97210070963352,
+    "user1ID": 44,
+    "user2ID": 63
+  },
+  {
+    "similarity": 120.7870916961826,
+    "user1ID": 80,
+    "user2ID": 83
+  },
+  {
+    "similarity": 120.60819851599562,
+    "user1ID": 34,
+    "user2ID": 57
+  },
+  {
+    "similarity": 120.52792735719565,
+    "user1ID": 33,
+    "user2ID": 74
+  },
+  {
+    "similarity": 120.49431537320811,
+    "user1ID": 32,
+    "user2ID": 54
+  },
+  {
+    "similarity": 120.42455633862613,
+    "user1ID": 61,
+    "user2ID": 62
+  },
+  {
+    "similarity": 120.4182875308487,
+    "user1ID": 39,
+    "user2ID": 62
+  },
+  {
+    "similarity": 120.39137411451607,
+    "user1ID": 23,
+    "user2ID": 48
+  },
+  {
+    "similarity": 120.3330557868443,
+    "user1ID": 32,
+    "user2ID": 70
+  },
+  {
+    "similarity": 120.29574424038091,
+    "user1ID": 68,
+    "user2ID": 95
+  },
+  {
+    "similarity": 120.2589063794532,
+    "user1ID": 81,
+    "user2ID": 84
+  },
+  {
+    "similarity": 120.25466028318223,
+    "user1ID": 35,
+    "user2ID": 71
+  },
+  {
+    "similarity": 120.238379022646,
+    "user1ID": 47,
+    "user2ID": 56
+  },
+  {
+    "similarity": 120.19938191606022,
+    "user1ID": 54,
+    "user2ID": 70
+  },
+  {
+    "similarity": 120.19213772432079,
+    "user1ID": 29,
+    "user2ID": 85
+  },
+  {
+    "similarity": 120.17277125086386,
+    "user1ID": 11,
+    "user2ID": 70
+  },
+  {
+    "similarity": 120.1707650273224,
+    "user1ID": 60,
+    "user2ID": 97
+  },
+  {
+    "similarity": 120.13117678695578,
+    "user1ID": 14,
+    "user2ID": 43
+  },
+  {
+    "similarity": 114.01263501120849,
+    "user1ID": 63,
+    "user2ID": 84
+  },
+  {
+    "similarity": 112.46498599439953,
+    "user1ID": 17,
+    "user2ID": 59
+  },
+  {
+    "similarity": 111.37191854233656,
+    "user1ID": 38,
+    "user2ID": 82
+  },
+  {
+    "similarity": 109.9880114502883,
+    "user1ID": 8,
+    "user2ID": 74
+  },
+  {
+    "similarity": 109.58002623446498,
+    "user1ID": 54,
+    "user2ID": 96
+  },
+  {
+    "similarity": 109.52454163069488,
+    "user1ID": 16,
+    "user2ID": 60
+  },
+  {
+    "similarity": 108.44444444444444,
+    "user1ID": 18,
+    "user2ID": 43
+  },
+  {
+    "similarity": 107.83764017552413,
+    "user1ID": 22,
+    "user2ID": 90
+  },
+  {
+    "similarity": 107.5215015957159,
+    "user1ID": 42,
+    "user2ID": 67
+  },
+  {
+    "similarity": 107.45550745550784,
+    "user1ID": 34,
+    "user2ID": 43
+  },
+  {
+    "similarity": 107.33233361935258,
+    "user1ID": 44,
+    "user2ID": 57
+  },
+  {
+    "similarity": 106.82149362477232,
+    "user1ID": 15,
+    "user2ID": 97
+  },
+  {
+    "similarity": 106.23130782131047,
+    "user1ID": 13,
+    "user2ID": 60
+  },
+  {
+    "similarity": 105.91467356173239,
+    "user1ID": 14,
+    "user2ID": 75
+  },
+  {
+    "similarity": 105.45932168123178,
+    "user1ID": 13,
+    "user2ID": 16
+  },
+  {
+    "similarity": 105.26567481402763,
+    "user1ID": 66,
+    "user2ID": 96
+  },
+  {
+    "similarity": 104.78536946898222,
+    "user1ID": 2,
+    "user2ID": 97
+  },
+  {
+    "similarity": 104.76794676591665,
+    "user1ID": 2,
+    "user2ID": 15
+  },
+  {
+    "similarity": 104.29206484231901,
+    "user1ID": 46,
+    "user2ID": 62
+  },
+  {
+    "similarity": 104.21307293041261,
+    "user1ID": 45,
+    "user2ID": 71
+  },
+  {
+    "similarity": 104.06593406593339,
+    "user1ID": 77,
+    "user2ID": 85
+  },
+  {
+    "similarity": 103.96353547364248,
+    "user1ID": 10,
+    "user2ID": 57
+  },
+  {
+    "similarity": 103.92553989498205,
+    "user1ID": 16,
+    "user2ID": 28
+  },
+  {
+    "similarity": 103.91113422314672,
+    "user1ID": 15,
+    "user2ID": 69
+  },
+  {
+    "similarity": 103.80483128231727,
+    "user1ID": 6,
+    "user2ID": 41
+  },
+  {
+    "similarity": 103.5569219303149,
+    "user1ID": 17,
+    "user2ID": 87
+  },
+  {
+    "similarity": 103.48514059882908,
+    "user1ID": 5,
+    "user2ID": 62
+  },
+  {
+    "similarity": 103.4792633452996,
+    "user1ID": 10,
+    "user2ID": 51
+  },
+  {
+    "similarity": 103.45349833895095,
+    "user1ID": 66,
+    "user2ID": 84
+  },
+  {
+    "similarity": 103.0934060714625,
+    "user1ID": 58,
+    "user2ID": 81
+  },
+  {
+    "similarity": 103.0066375650302,
+    "user1ID": 3,
+    "user2ID": 36
+  },
+  {
+    "similarity": 102.83980087668627,
+    "user1ID": 50,
+    "user2ID": 68
+  },
+  {
+    "similarity": 102.66790447996489,
+    "user1ID": 26,
+    "user2ID": 69
+  },
+  {
+    "similarity": 102.65079910637567,
+    "user1ID": 55,
+    "user2ID": 58
+  },
+  {
+    "similarity": 102.50129886767206,
+    "user1ID": 17,
+    "user2ID": 73
+  },
+  {
+    "similarity": 102.37785316665808,
+    "user1ID": 88,
+    "user2ID": 95
+  },
+  {
+    "similarity": 102.0064205457464,
+    "user1ID": 23,
+    "user2ID": 94
+  },
+  {
+    "similarity": 101.91422812386357,
+    "user1ID": 1,
+    "user2ID": 82
+  },
+  {
+    "similarity": 101.66112956810632,
+    "user1ID": 10,
+    "user2ID": 64
+  },
+  {
+    "similarity": 101.45751348199971,
+    "user1ID": 27,
+    "user2ID": 47
+  },
+  {
+    "similarity": 101.20525491141376,
+    "user1ID": 20,
+    "user2ID": 30
+  },
+  {
+    "similarity": 101.18920204542752,
+    "user1ID": 2,
+    "user2ID": 41
+  },
+  {
+    "similarity": 101.17247039512252,
+    "user1ID": 61,
+    "user2ID": 84
+  },
+  {
+    "similarity": 101.1258725512272,
+    "user1ID": 39,
+    "user2ID": 84
+  },
+  {
+    "similarity": 101.12460638776429,
+    "user1ID": 23,
+    "user2ID": 66
+  },
+  {
+    "similarity": 100.96805421103582,
+    "user1ID": 8,
+    "user2ID": 63
+  }
+]

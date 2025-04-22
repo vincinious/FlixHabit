@@ -1,0 +1,54 @@
+[
+  {
+    "ageRange": "15-20",
+    "genre": "Action"
+  },
+  {
+    "ageRange": "20-25",
+    "genre": "Romance"
+  },
+  {
+    "ageRange": "25-30",
+    "genre": "Horror"
+  },
+  {
+    "ageRange": "30-35",
+    "genre": "Sci-Fi"
+  },
+  {
+    "ageRange": "35-40",
+    "genre": "Romance"
+  },
+  {
+    "ageRange": "40-45",
+    "genre": "Documentary"
+  },
+  {
+    "ageRange": "45-50",
+    "genre": "Comedy"
+  },
+  {
+    "ageRange": "50-55",
+    "genre": "Drama"
+  },
+  {
+    "ageRange": "55-60",
+    "genre": "Documentary"
+  },
+  {
+    "ageRange": "60-65",
+    "genre": "Comedy"
+  },
+  {
+    "ageRange": "65-70",
+    "genre": "Documentary"
+  },
+  {
+    "ageRange": "70-75",
+    "genre": "Action"
+  },
+  {
+    "ageRange": "75-80",
+    "genre": "Drama"
+  }
+]
