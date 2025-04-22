@@ -29,6 +29,10 @@ class Graph
 
         void printGraph() const;
 
+        unordered_map<string, vector<string>> getAdjList() const {
+            return adjList;
+        }
+
 
 
 };

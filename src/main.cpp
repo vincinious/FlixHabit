@@ -13,6 +13,7 @@
 #include <iomanip>   // for std::setprecision
 #include <nlohmann/json.hpp>
 #include <filesystem>
+#include <set>
 
 using namespace std;
 
@@ -179,6 +180,43 @@ Graph buildUserGenreGraph(const vector<User>& users) {
     return graph;
 }
 
+using json = nlohmann::json;
+// Convert graph into a json object
+json toJson(const Graph& graph) {
+    json j;
+    j["nodes"] = json::array();
+    j["edges"] = json::array();
+
+    for (auto const& kv : graph.getAdjList()) {
+        j["nodes"].push_back({
+            {"id",    kv.first},
+            {"label", kv.first}
+        });
+    }
+
+    set<pair<string,string>> seen;
+    for (auto const& kv : graph.getAdjList()) {
+        for (auto const& nbr : kv.second) {
+            auto p = minmax(kv.first, nbr);
+            if (seen.insert(p).second) {
+                j["edges"].push_back({
+                    {"from", kv.first},
+                    {"to",   nbr}
+                });
+            }
+        }
+    }
+
+    return j;
+}
+
+void exportGraphToJson(const Graph& graph, const string& filepath) {
+    json j = toJson(graph);
+    ofstream ofs(filepath);
+    ofs << j.dump(2) << endl;
+}
+
+
 // Optimized function to find most similar users
 vector<UserSimilarity> findMostSimilarUsers(const vector<User>& users, unsigned int k) {
     // Limit the number of user comparisons for better performance
@@ -238,10 +276,10 @@ vector<UserSimilarity> findMostSimilarUsers(const vector<User>& users, unsigned 
     return topSimilarities;
 }
 
-void writeSimilaritiesToJSON(const std::vector<UserSimilarity>& sims,
-                             const std::filesystem::path& filePath)
+void writeSimilaritiesToJSON(const vector<UserSimilarity>& sims,
+                             const filesystem::path& filePath)
 {
-    namespace fs = std::filesystem;
+    namespace fs = filesystem;
     using nlohmann::json;
 
     fs::create_directories(filePath.parent_path());
@@ -255,13 +293,13 @@ void writeSimilaritiesToJSON(const std::vector<UserSimilarity>& sims,
         });
     }
 
-    std::ofstream out(filePath);
+    ofstream out(filePath);
     if (!out) {
-        std::cerr << "Cannot write to " << fs::absolute(filePath) << '\n';
+        cerr << "Cannot write to " << fs::absolute(filePath) << '\n';
         return;
     }
     out << j.dump(2);
-    std::cout << "✅  Wrote " << sims.size() << " pairs → "
+    cout << "Wrote " << sims.size() << " pairs → "
               << fs::absolute(filePath) << '\n';
 }
 
@@ -278,7 +316,7 @@ vector<User> findUsersBySubscription(const vector<User>& users, const string& su
     return result;
 }
 
-nlohmann::json usersToJson(const std::vector<User>& users)
+nlohmann::json usersToJson(const vector<User>& users)
 {
     using nlohmann::json;
 
@@ -299,15 +337,15 @@ nlohmann::json usersToJson(const std::vector<User>& users)
 }
 
 bool writeJsonToFile(const nlohmann::json& j,
-                     const std::filesystem::path& filePath,
-                     int indent = 2)      // default pretty‑print
+                     const filesystem::path& filePath,
+                     int indent = 2)      
 {
-    namespace fs = std::filesystem;
-    fs::create_directories(filePath.parent_path());   // mkdir -p
+    namespace fs = filesystem;
+    fs::create_directories(filePath.parent_path());   
 
-    std::ofstream out(filePath);
+    ofstream out(filePath);
     if (!out) {
-        std::cerr << "Cannot open " << fs::absolute(filePath) << '\n';
+        cerr << "Cannot open " << fs::absolute(filePath) << '\n';
         return false;
     }
     out << j.dump(indent);
@@ -425,7 +463,7 @@ int main() {
             for (int lo = minAge; lo < maxAge; lo += 5) {
                 int hi = lo + 5;            // 15‑20, 20‑25
 
-                std::string genre = findMostCommonGenreForAgeGroup(users, lo, hi);
+                string genre = findMostCommonGenreForAgeGroup(users, lo, hi);
 
                 if (genre.empty()) {
                     cout << "  " << lo << "-" << hi << ": (no users)\n";
@@ -435,15 +473,15 @@ int main() {
                 cout << "  " << lo << "-" << hi << ": " << genre << '\n';
 
                 buckets.push_back({
-                    {"ageRange", std::to_string(lo) + "-" + std::to_string(hi)},
+                    {"ageRange", to_string(lo) + "-" + to_string(hi)},
                     {"genre",    genre}
                 });
             }
 
             // Write the whole array once
             {
-                std::filesystem::create_directories("../frontend/public/data");
-                std::ofstream out("../frontend/flixhabit-frontend/public/data/genreForAgeGroup.json");
+                filesystem::create_directories("../frontend/public/data");
+                ofstream out("../frontend/flixhabit-frontend/public/data/genreForAgeGroup.json");
                 out << buckets.dump(2);
             }
             break;
@@ -467,9 +505,9 @@ int main() {
 
             // ④ write it once
             {
-                namespace fs = std::filesystem;
+                namespace fs = filesystem;
                 fs::create_directories("../frontend/public/data");
-                std::ofstream out("../frontend/flixhabit-frontend/public/data/avgWatchTimeByCountry.json");
+                ofstream out("../frontend/flixhabit-frontend/public/data/avgWatchTimeByCountry.json");
                 out << j.dump(2);
             }
 
@@ -482,6 +520,8 @@ int main() {
             }
 
             Graph userGenreGraph = buildUserGenreGraph(users);
+            // Export the user-genre graph to JSON for frontend visualization
+            exportGraphToJson(userGenreGraph,"../frontend/flixhabit-frontend/public/data/genre_graph.json");
             cout << "User-Genre Relationship Graph:\n";
             userGenreGraph.printGraph();
             break;

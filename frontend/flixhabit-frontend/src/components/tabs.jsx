@@ -1,44 +1,65 @@
-import React, { createContext, useContext, useState } from "react";
+import * as React from "react";
+import * as TabsPrimitive from "@radix-ui/react-tabs";
+import { cn } from "../lib/utils";
 
-const TabsCtx = createContext();
+const Tabs = TabsPrimitive.Root;
 
-export function Tabs({ value, onValueChange, children, className = "" }) {
-  const [internal, setInternal] = useState(value);
-  const current = value ?? internal;
-  const set = onValueChange ?? setInternal;
+const TabsList = React.forwardRef(({ className, ...props }, ref) => (
+  <TabsPrimitive.List
+    ref={ref}
+    className={cn(
+      "inline-flex h-10 items-center justify-center rounded-md bg-neutral-800/60 p-1 text-neutral-400",
+      className
+    )}
+    {...props}
+  />
+));
+TabsList.displayName = TabsPrimitive.List.displayName;
 
-  return (
-    <TabsCtx.Provider value={{ current, set }}>
-      <div className={className}>{children}</div>
-    </TabsCtx.Provider>
+const TabsTrigger = React.forwardRef(({ className, ...props }, ref) => {
+  // Get window width for responsive styling
+  const [windowWidth, setWindowWidth] = React.useState(
+    typeof window !== 'undefined' ? window.innerWidth : 0
   );
-}
-
-export function TabsList({ children, className = "" }) {
+  
+  React.useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }
+  }, []);
+  
+  const isMobile = windowWidth < 768;
+  
   return (
-    <div
-      className={`flex gap-1 rounded-lg border border-neutral-700/60 bg-neutral-800 p-1 ${className}`}
-    >
-      {children}
-    </div>
+    <TabsPrimitive.Trigger
+      ref={ref}
+      className={cn(
+        "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-neutral-900 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+        "data-[state=active]:bg-neutral-800 data-[state=active]:text-neutral-100 data-[state=active]:shadow-sm",
+        isMobile && "text-xs px-2 py-1",
+        className
+      )}
+      {...props}
+    />
   );
-}
+});
+TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;
 
-export function TabsTrigger({ value, children }) {
-  const { current, set } = useContext(TabsCtx);
-  const active = current === value;
-  return (
-    <button
-      onClick={() => set(value)}
-      className={`rounded px-3 py-1 text-sm transition
-        ${active ? "bg-red-600 text-white" : "text-neutral-400 hover:text-red-400"}`}
-    >
-      {children}
-    </button>
-  );
-}
+const TabsContent = React.forwardRef(({ className, ...props }, ref) => (
+  <TabsPrimitive.Content
+    ref={ref}
+    className={cn(
+      "mt-2 ring-offset-neutral-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2",
+      className
+    )}
+    {...props}
+  />
+));
+TabsContent.displayName = TabsPrimitive.Content.displayName;
 
-export function TabsContent({ value, children, className = "" }) {
-  const { current } = useContext(TabsCtx);
-  return current === value ? <div className={className}>{children}</div> : null;
-}
+export { Tabs, TabsList, TabsTrigger, TabsContent };

@@ -1,0 +1,118 @@
+{
+  "edges": [
+    {
+      "from": "Horror",
+      "to": "Documentary"
+    },
+    {
+      "from": "Horror",
+      "to": "Action"
+    },
+    {
+      "from": "Horror",
+      "to": "Sci-Fi"
+    },
+    {
+      "from": "Horror",
+      "to": "Comedy"
+    },
+    {
+      "from": "Horror",
+      "to": "Romance"
+    },
+    {
+      "from": "Horror",
+      "to": "Drama"
+    },
+    {
+      "from": "Drama",
+      "to": "Comedy"
+    },
+    {
+      "from": "Drama",
+      "to": "Sci-Fi"
+    },
+    {
+      "from": "Drama",
+      "to": "Documentary"
+    },
+    {
+      "from": "Drama",
+      "to": "Romance"
+    },
+    {
+      "from": "Drama",
+      "to": "Action"
+    },
+    {
+      "from": "Sci-Fi",
+      "to": "Romance"
+    },
+    {
+      "from": "Sci-Fi",
+      "to": "Documentary"
+    },
+    {
+      "from": "Sci-Fi",
+      "to": "Comedy"
+    },
+    {
+      "from": "Sci-Fi",
+      "to": "Action"
+    },
+    {
+      "from": "Documentary",
+      "to": "Action"
+    },
+    {
+      "from": "Documentary",
+      "to": "Romance"
+    },
+    {
+      "from": "Documentary",
+      "to": "Comedy"
+    },
+    {
+      "from": "Romance",
+      "to": "Action"
+    },
+    {
+      "from": "Romance",
+      "to": "Comedy"
+    },
+    {
+      "from": "Comedy",
+      "to": "Action"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "Horror",
+      "label": "Horror"
+    },
+    {
+      "id": "Drama",
+      "label": "Drama"
+    },
+    {
+      "id": "Sci-Fi",
+      "label": "Sci-Fi"
+    },
+    {
+      "id": "Documentary",
+      "label": "Documentary"
+    },
+    {
+      "id": "Romance",
+      "label": "Romance"
+    },
+    {
+      "id": "Comedy",
+      "label": "Comedy"
+    },
+    {
+      "id": "Action",
+      "label": "Action"
+    }
+  ]
+}

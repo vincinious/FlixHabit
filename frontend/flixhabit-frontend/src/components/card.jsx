@@ -22,6 +22,11 @@ export function CardHeader({ children, className = "" }) {
   );
 }
 
-export function CardContent({ children, className = "" }) {
-  return <div className={`px-4 py-3 ${className}`}>{children}</div>;
-}
+export const CardContent = React.forwardRef(({ children, className = "" }, ref) => {
+  return (
+    <div ref={ref} className={`px-4 py-3 ${className}`}>
+      {children}
+    </div>
+  );
+});
+CardContent.displayName = "CardContent";
