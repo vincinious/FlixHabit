@@ -70,7 +70,7 @@ The frontend ([frontend/](./frontend/)) uses React and `react-force-graph-2d` to
     ```bash
     cd frontend 
     cd flixhabit-frontend
-    npm run dev # Or the appropriate script
+    npm run dev
     ```
     Access the frontend via the URL provided by the development server (usually `http://localhost:5173`).
 
