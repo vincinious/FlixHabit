@@ -1,3 +1,3 @@
-C:/Users/patri/CodeSource/DSA/FlixHabit/cmake-build-debug/CMakeFiles/FlixHabit.dir
-C:/Users/patri/CodeSource/DSA/FlixHabit/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/patri/CodeSource/DSA/FlixHabit/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/imspi/OneDrive/Documents/GitHub/FlixHabit/cmake-build-debug/CMakeFiles/FlixHabit.dir
+C:/Users/imspi/OneDrive/Documents/GitHub/FlixHabit/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/imspi/OneDrive/Documents/GitHub/FlixHabit/cmake-build-debug/CMakeFiles/rebuild_cache.dir
