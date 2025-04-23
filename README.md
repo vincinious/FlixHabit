@@ -8,11 +8,11 @@ https://flixhabit.netlify.app/
 
 FlixHabit is a project that analyzes relationships in Netflix user data, using graph algorithms and data structures. It features a C++ core for data processing and a React-based frontend for visualization, likely displaying the data as a force-directed graph. The project seeks to efficiently sort data to foster the improvement of recommendation systems or habit tracking within the context of media consumption.
 
-The project utilizes graph structures (`Graph.h`, `Graph.cpp`) and min-heaps (`MinHeap.h`, `MinHeap.cpp`) in its C++ backend, suggesting sophisticated data analysis or pathfinding capabilities. User data (`User.h`) is likely incorporated into these analyses. JSON (`nlohmann/json.hpp`) is used for data serialization/deserialization, potentially for communication between the backend and frontend or for loading initial data.
+The project utilizes graph structures (`Graph.h`, `Graph.cpp`) and min-heaps (`MinHeap.h`, `MinHeap.cpp`) in its C++ backend, using non-trivial data analysis or pathfinding capabilities. User data (`User.h`) is incorporated into these analyses. JSON (`nlohmann/json.hpp`) is used for data serialization/deserialization, potentially for communication between the backend and frontend or for loading initial data.
 
 The frontend ([frontend/](./frontend/)) uses React and `react-force-graph-2d` to visualize the processed data interactively, styled with Tailwind CSS.
 
-## Features (Inferred)
+## Features 
 
 *   **Data Processing:** Core logic implemented in C++ using graph algorithms and min-heaps.
 *   **Data Visualization:** Interactive force-directed graph visualization using React.
@@ -76,7 +76,7 @@ The frontend ([frontend/](./frontend/)) uses React and `react-force-graph-2d` to
 
 ## Data
 
-The project likely relies on data files located in the [`data/`](./data/) directory. Check this directory for sample data or instructions on data format.
+The project relies on data files located in the [`data/`](./data/) directory. Check this directory for sample data or instructions on data format.
 
 ## Testing
 
