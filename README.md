@@ -6,7 +6,7 @@ https://flixhabit.netlify.app/
 
 ## Description
 
-FlixHabit appears to be a project that analyzes relationships or data, possibly related to users and media content (like movies or shows), using graph algorithms and data structures. It features a C++ core for data processing and a React-based frontend for visualization, likely displaying the data as a force-directed graph. The name and tagline hint at a connection to recommendation systems or habit tracking within the context of media consumption.
+FlixHabit is a project that analyzes relationships in Netflix user data, using graph algorithms and data structures. It features a C++ core for data processing and a React-based frontend for visualization, likely displaying the data as a force-directed graph. The project seeks to efficiently sort data to foster the improvement of recommendation systems or habit tracking within the context of media consumption.
 
 The project utilizes graph structures (`Graph.h`, `Graph.cpp`) and min-heaps (`MinHeap.h`, `MinHeap.cpp`) in its C++ backend, suggesting sophisticated data analysis or pathfinding capabilities. User data (`User.h`) is likely incorporated into these analyses. JSON (`nlohmann/json.hpp`) is used for data serialization/deserialization, potentially for communication between the backend and frontend or for loading initial data.
 
