@@ -5,3 +5,8 @@
 18	1089	7670502738779726	build.ninja	228f367d9faf0144
 26	1760	7668829055991010	CMakeFiles/FlixHabit.dir/src/main.cpp.obj	e38edee09b8b0ac6
 1761	2214	7668829060491948	FlixHabit.exe	84d57790786081de
+42	205	7670771568564819	CMakeFiles/FlixHabit.dir/test/test.cpp.obj	1dd608d5473cb9b4
+7	1778	7670771584282229	CMakeFiles/FlixHabit.dir/src/MinHeap.cpp.obj	2f31e27bfaf0ff84
+33	1947	7670771585973981	CMakeFiles/FlixHabit.dir/src/Graph.cpp.obj	e0f6c2115ae6fbd2
+21	8110	7670771647392439	CMakeFiles/FlixHabit.dir/src/main.cpp.obj	79176f936fc2b76c
+8111	11231	7670771678755654	FlixHabit.exe	84d57790786081de
