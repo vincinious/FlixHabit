@@ -101,7 +101,7 @@ ActivityGraph buildActivityGraph(const std::vector<User>& users, int highestWatc
     for (int i = 0; i < n; ++i) 
     {
         if (i == highestWatch) { continue; }
-        double w = fabs(users[i].watchTime - users[highestWatch].watchTime);
+        double w = labs(users[i].watchTime - users[highestWatch].watchTime);
 
         ag.addEdge(highestWatch, i, w);
 
