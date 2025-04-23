@@ -3,9 +3,14 @@
 #include "MinHeap.h"
 #include "User.h"
 #include <algorithm>  
+#include <filesystem>
+#include <limits>
 
 
 using namespace std;
+
+
+/* ---------------- Unbounded MinHeap ---------------- */
 
 template<typename T>
 MinHeap<T>::MinHeap() { }
@@ -71,6 +76,8 @@ void MinHeap<T>::insert(const T& element)
     heap.push_back(element);
     heapifyUp(heap.size() - 1);
 
+    if (heap.size() > capacity)   { removeMin(); }
+
 }
 
 /* Return the root of the heap */
@@ -88,7 +95,7 @@ T MinHeap<T>::getMin() const
 template <typename T>
 void MinHeap<T>::removeMin()
 {
-    /* If no root, throw err messsage */
+    /* If no root, throw error messsage */
     if (heap.empty() == true)   { throw runtime_error("Heap is empty!"); }
 
     heap[0] = heap[heap.size() - 1];
@@ -99,3 +106,77 @@ void MinHeap<T>::removeMin()
 }
 
 template class MinHeap<UserSimilarity>;
+
+
+/* ---------------- Fixed-Size MinHeap ---------------- */
+
+template<typename T>
+int FixedMinHeap<T>::getParent(int i) const   { return (i - 1) / 2; }
+
+template<typename T>
+int FixedMinHeap<T>::getLChild(int i) const   { return 2 * i + 1; }
+
+template<typename T>
+int FixedMinHeap<T>::getRChild(int i) const   { return 2 * i + 2; }
+
+template<typename T>
+void FixedMinHeap<T>::heapifyUp(int i) 
+{
+    while (i > 0 && heap[i] < heap[getParent(i)]) 
+    {
+        swap(heap[i], heap[getParent(i)]);
+        i = getParent(i);
+    }
+}
+
+template<typename T>
+void FixedMinHeap<T>::heapifyDown(int i) 
+{
+    int smallest = i;
+    int l = getLChild(i), r = getRChild(i);
+    if (l < (int)heap.size() && heap[l] < heap[smallest]) smallest = l;
+    if (r < (int)heap.size() && heap[r] < heap[smallest]) smallest = r;
+    if (smallest != i)
+    {
+        swap(heap[i], heap[smallest]);
+        heapifyDown(smallest);
+    }
+}
+
+template<typename T>
+void FixedMinHeap<T>::insert(const T& val) 
+{
+    if (capacity == 0) return;
+    heap.push_back(val);
+    heapifyUp((int)heap.size() - 1);
+    if (heap.size() > capacity) removeMin();
+}
+
+template<typename T>
+T FixedMinHeap<T>::getMin() const 
+{
+    if (heap.empty()) throw runtime_error("Heap is empty");
+    return heap[0];
+}
+
+template<typename T>
+void FixedMinHeap<T>::removeMin()
+{
+    if (heap.empty()) throw runtime_error("Heap is empty");
+    heap[0] = heap.back();
+    heap.pop_back();
+    if (!heap.empty()) heapifyDown(0);
+}
+
+template<typename T>
+unsigned int FixedMinHeap<T>::size() const   { return heap.size(); }
+
+template<typename T>
+FixedMinHeap<T>::FixedMinHeap(unsigned int capacity)
+    : capacity(capacity)
+{}
+
+template<typename T>
+bool FixedMinHeap<T>::empty() const  { return heap.empty(); }
+
+template class FixedMinHeap<UserWatch>;

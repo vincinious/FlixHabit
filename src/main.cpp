@@ -1,5 +1,3 @@
-/* Completed by Ilani Seguinot */
-
 #include "User.h"
 #include "Graph.h"
 #include "MinHeap.h"
@@ -12,10 +10,11 @@
 #include <fstream>
 #include <sstream>
 #include <limits>
-#include <iomanip>   // for std::setprecision
+#include <iomanip>   
 #include <nlohmann/json.hpp>
 #include <filesystem>
 #include <set>
+#include <chrono>
 
 using namespace std;
 
@@ -355,18 +354,30 @@ bool writeJsonToFile(const nlohmann::json& j,
 }
 
 
-// Find most active users (highest watch time)
-vector<User> findMostActiveUsers(const vector<User>& users, int k) {
-    vector<User> sortedUsers = users;
+// Find most active users (Min Fixed Size Heap)
+vector<User> findMostActiveUsers(const vector<User>& users, int k) 
+{
+    FixedMinHeap<UserWatch> heap(k);
 
-    sort(sortedUsers.begin(), sortedUsers.end(), [](const User& a, const User& b) {
-        return a.watchTime > b.watchTime;
-        });
+    for (auto& u : users)
+    { 
+        UserWatch uw{ u.watchTime, u };
+        heap.insert(uw);
+    }
 
     vector<User> result;
-    for (int i = 0; i < k && i < static_cast<int>(sortedUsers.size()); i++) {
-        result.push_back(sortedUsers[i]);
+    vector<UserWatch> buf;
+    while (heap.empty() == false) 
+    {
+        buf.push_back(heap.getMin());
+        heap.removeMin();
+
     }
+
+    reverse(buf.begin(), buf.end());
+
+    for (auto& uw : buf)
+       { result.push_back(uw.user); }
 
     return result;
 }
@@ -588,19 +599,80 @@ int main() {
             cin >> k;
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear input buffer
 
-            vector<User> activeUsers = findMostActiveUsers(users, k);
+            cout << "Process with:\n";
+            cout << "1. Fixed-Size Min-Heap\n";  
+            cout << "2. ActivityGraph\n";
+            cout << "Enter choice: ";
+
+            int structureChoice;
+            cin >> structureChoice;
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+            vector<User> activeUsers; 
+
+            if (structureChoice == 1)
+            {
+                /* Measure the elapsed time of the dataset using FIXED SIZE HEAP */
+                /* Source: https://cplusplus.com/reference/chrono/high_resolution_clock/ */
+                auto heapStart = chrono::high_resolution_clock::now();
+                vector<User> heapResult = findMostActiveUsers(users, k);
+                activeUsers = heapResult;
+                auto heapFinish = chrono::high_resolution_clock::now();
+                auto heapUS = chrono::duration_cast<chrono::microseconds>(heapFinish - heapStart).count();
+
+                cout << "Processed user database in " << heapUS << " μs using a Min Heap." << endl;
+
+                for (auto& u : activeUsers)
+                   { cout << "User " << u.userID << " - " << u.watchTime << " h\n"; }
+            }
+            else if (structureChoice == 2)
+            {
+                /* Find the index of the user with the highest watch time */
+                int highestWatch = 0;
+                for (int i = 1; i < (int)users.size(); ++i)
+                {
+                    if (users[i].watchTime > users[highestWatch].watchTime) { highestWatch = i; }
+                }
+
+                /* Measure the elapsed time of the dataset using GRAPH */
+                /* Source: https://cplusplus.com/reference/chrono/high_resolution_clock/ */
+                auto graphStart = chrono::high_resolution_clock::now();
+
+                /* Build the graph */
+                ActivityGraph ag = buildActivityGraph(users, highestWatch);
+
+                auto graphResult = ag.topKClosest(highestWatch, k);
+                auto graphFinish = chrono::high_resolution_clock::now();
+                auto graphUS = chrono::duration_cast<chrono::microseconds>(graphFinish - graphStart).count();
+
+                // 3) Map the indices back to User objects
+                activeUsers.clear();
+                activeUsers.reserve(graphResult.size());
+
+                for (int index : graphResult)
+                   { activeUsers.push_back(users[index]); }
+
+                cout << "Processed user database in " << graphUS << " μs using a Graph." << endl;
+
+                cout << "Most active users:\n";
+                for (const auto& user : activeUsers) 
+                {
+                    cout << "User ID: " << user.userID 
+                        << ", Name: " << user.name 
+                        << ", Watch Time: " << user.watchTime 
+                        << " hours, Genre: " << user.genre << endl;
+                }
+
+            }
+
             nlohmann::json j = usersToJson(activeUsers);
 
             writeJsonToFile(j,
                 "../frontend/flixhabit-frontend/public/data/topActive_users.json");
 
-            cout << "Most active users:\n";
-            for (const auto& user : activeUsers) {
-                cout << "User ID: " << user.userID << ", Name: " << user.name
-                    << ", Watch Time: " << user.watchTime << " hours, Genre: " << user.genre << endl;
-            }
             break;
         }
+
         case 9: {
             if (users.empty()) {
                 cout << "No user data loaded. Please load data first." << endl;

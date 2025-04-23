@@ -1,5 +1,7 @@
 /* Completed by Vinicius Intravartola (WIP) */
 #include "Graph.h"
+#include <filesystem>
+
 
 using namespace std;
 
@@ -54,3 +56,56 @@ void Graph::printGraph() const
 
 }
 
+
+// ActivityGraph implementation
+// ───────────────────────────────────────────────────────────
+
+ActivityGraph::ActivityGraph(int n)
+    : adj(n)
+{}
+
+void ActivityGraph::addEdge(int u, int v, double w) 
+{
+    if (u < 0 || u >= (int)adj.size() ||
+        v < 0 || v >= (int)adj.size()) {
+        return;
+    }
+    adj[u].push_back({ v, w });
+    adj[v].push_back({ u, w });
+}
+
+vector<int> ActivityGraph::topKClosest(int src, int k) const 
+{
+    // copy so we can sort without mutating the original
+    vector<pair<int, double>> list = adj[src];
+
+    sort(
+        list.begin(), list.end(),
+        [](const pair<int, double>& a, const pair<int, double>& b) {
+            return a.second < b.second;
+        }
+    );
+
+    vector<int> result;
+    for (int i = 0; i < k && i < (int)list.size(); ++i) {
+        result.push_back(list[i].first);
+    }
+    return result;
+}
+
+ActivityGraph buildActivityGraph(const std::vector<User>& users, int highestWatch)
+{
+    int n = (int)users.size();
+    ActivityGraph ag(n);
+
+    for (int i = 0; i < n; ++i) 
+    {
+        if (i == highestWatch) { continue; }
+        double w = fabs(users[i].watchTime - users[highestWatch].watchTime);
+
+        ag.addEdge(highestWatch, i, w);
+
+    }
+
+    return ag;
+}
