@@ -9,8 +9,9 @@
 #include <algorithm>
 #include <fstream>
 #include <sstream>
+#include <filesystem>
 #include <limits>
-#include "Graph.h"
+
 #include "MinHeap.h"
 
 using namespace std;
@@ -32,8 +33,16 @@ struct UserSimilarity
     int    user1ID;
     int    user2ID;
     double similarity;
-    bool operator<(const UserSimilarity& o) const
-    {
-        return similarity > o.similarity; 
-    }
+
+    bool operator<(const UserSimilarity& o) const   { return similarity > o.similarity; }
 };
+
+struct UserWatch 
+{
+    double watchTime;
+    User user;
+
+    bool operator<(const UserWatch& o) const   { return watchTime < o.watchTime; }
+};
+
+template class MinHeap<UserWatch>;
